@@ -1,8 +1,22 @@
 
+
 How to run the "index now" button that is in the Xray UI, from the API ?
 ```text
 curl -XPOST  -uadmin:<password> '<JFROG_PLATFORM_URL>/xray/ui/unified/indexBinMgrWithFilter'   --data-raw '{"repos":["<repo_name>"],"filter":{"include_pattern":"**","exclude_pattern":""}}'
 ```
+or
+```text
+curl -XPOST  -uadmin:<password> '<JFROG_PLATFORM_URL>/xray/ui/unified/indexBinMgrWithFilter'   --data-raw '{"repos":["acme-maven-dev-local"],"filter":{"include_pattern":"**","exclude_pattern":"","time_range":"90d"}}'
+```
+Output
+```
+{"info":"index of binary manager:default is in progress"}
+```
+
+![Index Now](index_now.png)
+![Index Selection](index_selection.png)
+
+
 ---
 ## Index artifacts
 To run the same  "index now" for artifacts not indexed for last 10 days ?
