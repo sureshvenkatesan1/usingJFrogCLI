@@ -1,4 +1,5 @@
 #!/bin/bash
+# bash get_artifact_index_status_and_scannow_with_jf.sh soleng ad-npm-local-temp
 
 if [ $# -ne 2 ]; then
     echo "Usage: $0 <server-id> <reponame>"
@@ -31,7 +32,8 @@ while IFS= read -r line; do
     # If Xray indexing status is "Not indexed", trigger indexing
     if [[ "$xrayIndexStatus" == *"Not indexed" ]]; then
         jf xr curl -XPOST "/api/v2/index" -H "Content-Type: application/json" --server-id "$server_id" -d '{ "repo_path": "'"$repoKey$line"'" }'
-        echo
+        echo ""
+        echo "indexed $repoKey$line"
     fi
 done < "$tempFilesListOutput"
 # Clean up
