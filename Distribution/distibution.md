@@ -328,4 +328,7 @@ The key details is :
 }
 ]
 ```
+You can use the [get_kid_details.sh](get_kid_details.sh) as explained in [get_kid_details.md](get_kid_details.md) to get the GPG Key used to 
+sign the release bundle and its expiry 
 
+---
