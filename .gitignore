@@ -1,0 +1,11 @@
+/Access/setenv.sh
+/Access/test.txt
+
+/artifactory/storage/storage-summary.json
+/artifactory/storage/storage-summary-161.json
+
+/Distribution/setenv.sh
+/setenv.sh
+/repos/cleanup/not_working/*
+/.idea
+replication/set_replication_passwords/.idea

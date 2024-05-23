@@ -1,0 +1,9 @@
+{
+  "dry_run": false,
+  "auto_create_missing_repositories": true,
+  "distribution_rules": [
+    {
+      "site_name": "India-Edge"
+    }
+  ]
+}

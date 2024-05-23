@@ -1,0 +1,20 @@
+{
+  "name": "lenovo-sample-rb",
+  "version": "1.0",
+  "dry_run": false,
+  "sign_immediately": false,
+  "storing_repository": null,
+  "description": "A sample RB for demo",
+  "release_notes": {
+    "syntax": "plain_text",
+    "content": "Validation tested and QA tested"
+  },
+"spec": {
+    "queries": [
+      {
+        "aql": "items.find({\"$and\": [ {\"$or\": [ {\"repo\": {\"$eq\": \"docker-fed-local\" } }, {\"repo\": { \"$eq\": \"mvn-fed-local\"}} ]},{\"$or\": [{\"$and\": [{\"artifact.module.build.name\": {\"$eq\": \"promotion-build-testing\"}},{\"artifact.module.build.number\": { \"$eq\": \"1\" } }]}]},{ \"$and\": [ { \"@build.name\": \"promotion-build-testing\" }, { \"@build.number\": \"1\"}]} ] }).include(\"sha256\",\"updated\",\"modified_by\",\"created\",\"id\",\"original_md5\",\"depth\",\"actual_sha1\",\"property.value\",\"modified\",\"property.key\",\"actual_md5\",\"created_by\",\"type\",\"name\",\"repo\",\"original_sha1\",\"size\",\"path\")",
+        "query_name": "lenovo-sample-rb"
+      }
+    ]
+  }
+}
