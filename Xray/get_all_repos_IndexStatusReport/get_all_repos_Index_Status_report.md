@@ -47,4 +47,11 @@ Once executing, please share the below details/files with us for further trouble
 3. Screenshot of Indexed Resources page ( to know the current status of ‘fedramp-release’ repository )
 
 4. Latest Xray Support Bundle ( with debug loggers enabled ).
+
 ---
+
+If you want to index only the artifacts with “expired” retention period in a repo you can use:
+
+a) [get_artifact_index_status_and_forceReindex_with_jf.sh](get_artifact_index_status_and_forceReindex_with_jf.sh) which uses [Force Reindex](https://jfrog.com/help/r/xray-rest-apis/force-reindex)   API.
+
+b) [get_artifact_index_status_and_scannow_with_jf.sh](get_artifact_index_status_and_scannow_with_jf.sh) which uses   [“Scan Now”](https://jfrog.com/help/r/jfrog-rest-apis/scan-now) API ( Enables you to index resources on-demand, even those that were not marked for indexing)
