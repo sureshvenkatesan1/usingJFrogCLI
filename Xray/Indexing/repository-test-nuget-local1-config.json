@@ -1,0 +1,18 @@
+{
+  "key" : "test-nuget-local1",
+  "packageType" : "nuget",
+  "description" : "",
+  "includesPattern" : "**/*",
+  "excludesPattern" : "",
+  "repoLayoutRef" : "nuget-default",
+  "enableNuGetSupport" : true,
+  "forceNugetAuthentication" : false,
+  "priorityResolution" : false,
+  "checksumPolicyType" : "client-checksums",
+  "handleReleases" : true,
+  "handleSnapshots" : true,
+
+  "propertySets" : [ "artifactory" ],
+  "xrayIndex" : false,
+  "rclass" : "local"
+}

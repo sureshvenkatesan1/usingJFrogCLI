@@ -34,6 +34,22 @@ Logs the following in the `xray-indexer-service.log`:
 2022-03-24T21:00:40.596Z [33m[jfxid][0m [34m[INFO ][0m [44d76f7888a4216b] [downloader:75         ] [main        ] Event worker id 1 is processing message from index --> repo maven-central-local-safe-prod
 ```
 ---
+How to check artifacts index status of a repository ?
+From XRAY-9863
+```
+jf xr cl /ui/unified/stats/indexStatus  -H 'Content-Type: application/json'  --data-raw '{"repo_key":"my-repo-key"}'
+
+Example:
+jf xr cl /ui/unified/stats/indexStatus  -H "Content-Type: application/json"  --data-raw '{"repo_key":"alpine-local"}
+' --server-id=psazuse
+```
+The Output below does not clearly say if the repo was indexed or not as it gives below output for
+repos not enabled for indexing as well.
+```
+{"completed":0,"potential":1,"started":0}
+```
+---
+
 ## Index release bundle
 
 Script to index/scan each artifact in a release bundle:
@@ -70,6 +86,28 @@ default
 
 ---
 ## Repos:
+Get the Xray specific repository configuration:
+
+Use the API ["Get Repositories Configurations"](https://jfrog.com/help/r/xray-rest-apis/get-repositories-configurations)
+```bash
+jf xr  curl /api/v1/repos_config/acme-maven-dev-local --server-id=mill | jq
+
+or
+curl --location --request GET "https://${ARTIFACTORY_HOSTNAME}/xray/api/v1/repos_config/teamA-alpine-dev-local" \
+--header "Authorization: Bearer ${ARTIFACTORY_ACCESS_TOKEN}"
+```
+Output for a repo that has `Enable Indexing In Xray`  disabled:
+```
+{"error":"Request payload is invalid as repo 'sv-maven-local' is either not indexed or does not exist"}
+```
+
+Output for a repo that has `Enable Indexing In Xray`  enabled:
+```
+{"repo_name":"example-repo-local","repo_config":{"retention_in_days":90}
+```
+
+----
+
 Find all repos indexed by Xray:
 YOu can  use the '[Get Repos Indexing Configuration](https://jfrog.com/help/r/jfrog-rest-apis/get-repos-indexing-configuration)' API
 which Gets the indexed and not indexed repositories in a given binary manger and filter for indexed repos using jq
@@ -79,8 +117,28 @@ as mentioned in KB
 ```text
 jf xr curl -XGET "/api/v1/binMgr/default/repos" --server-id soleng |jq '.indexed_repos | map({name: .name})'
 ```
+The `jq` command parses below output:
 
-Running the above will output a list of  repositories indexed by Xray:
+```
+{
+    "bin_mgr_id": "default",
+    "indexed_repos": [
+        {
+            "name": "docker-local",
+            "type": "local",
+            "pkg_type": "Docker"
+        }
+    ],
+    "non_indexed_repos": [
+        {
+            "name": "debian-local",
+            "type": "local",
+            "pkg_type": "Debian"
+        }
+    ]
+}
+```
+Then it will output a list of  repositories indexed by Xray:
 
 ```text
 [
@@ -111,6 +169,18 @@ jf rt curl -XPOST "/api/repositories/<repo-name>"  -H "Content-Type: application
 Output:
 `Repository <repo-name> update successfully.`
 
+Note: DO not use below API as it will replace the "indexed_repos" with the list you provide:
+```
+jf xr cl -XPUT /api/v1/binMgr/default/repos  -H "Content-Type: application/json"  \
+--data-raw '{"indexed_repos": [
+        {
+            "name": "ad-nuget-local",
+            "type": "local",
+            "pkg_type": "Nuget"
+        }
+    ]
+    }' --server-id=psazuse
+```
 ---
 I want to reindex all the repos ( that have "Enable Indexing In Xray" i.e xrayIndex  enabled ) in my artifactory for 
 enabling full XRAY scan . I don't want to do it repo by repo manually. How to do it ?
