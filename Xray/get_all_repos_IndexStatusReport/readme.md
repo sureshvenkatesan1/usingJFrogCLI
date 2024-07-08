@@ -52,8 +52,9 @@ If the Xray indexing for a particular repository does not reach 100%, please pro
 
 ---
 
-How can I index only the artifacts with “expired” retention period in a repo ?
-If you want to index only the artifacts with “expired” retention period in a repo you can use:
+I want an Index report of all artifacts in a repository. In addition to that if artifacts in the repo  have not been 
+indexed or  the retention period “expired” then index only those  artifacts . How can I do that ?
+You can use:
 
 a) [get_artifact_index_status_and_forceReindex_with_jf.sh](get_artifact_index_status_and_forceReindex_with_jf.sh) which uses [Force Reindex](https://jfrog.com/help/r/xray-rest-apis/force-reindex)   API.
 
