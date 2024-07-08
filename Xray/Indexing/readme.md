@@ -131,7 +131,7 @@ Output for a repo that has `Enable Indexing In Xray`  enabled:
 {"repo_name":"example-repo-local","repo_config":{"retention_in_days":90}
 ```
 
-----
+---
 
 ## Find all repos indexed by Xray:
 
@@ -202,6 +202,7 @@ It provides the same output for repositories not enabled for indexing as well.
 {"completed":0,"potential":1,"started":0}
 ```
 So use the  script [find_unindexed_repos.sh](find_unindexed_repos.sh) instead.
+
 ---
 
 What is the rest api to index a repo that is not already indexed for Xray scans?
