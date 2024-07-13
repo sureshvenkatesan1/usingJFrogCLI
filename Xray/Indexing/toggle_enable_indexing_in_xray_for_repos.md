@@ -17,6 +17,14 @@ This [toggle_enable_indexing_in_xray_for_repos.sh](toggle_enable_indexing_in_xra
 - `<enable>`: Set to `true` to enable Xray indexing or `false` to disable Xray indexing.
 - `<repo-name1> [<repo-name2> ... <repo-nameN>]`: A list of one or more repository names for which you want to toggle the Xray indexing.
 
+You can get the list of `local` , `remote` and `federated` repos in the JPD  using the following for the `<repo-name1> [<repo-name2> ... <repo-nameN>]` :
+```bash
+jf rt curl -s -XGET "/api/repositories?type=local"  --server-id=psazuse | jq -r '.[] | .key' | tr '\n' ' '
+
+jf rt curl -s -XGET "/api/repositories?type=remote"  --server-id=psazuse | jq -r '.[] | .key' | tr '\n' ' '
+
+jf rt curl -s -XGET "/api/repositories?type=federated"  --server-id=psazuse | jq -r '.[] | .key' | tr '\n' ' '
+```
 ### Example
 
 Enable Xray indexing:

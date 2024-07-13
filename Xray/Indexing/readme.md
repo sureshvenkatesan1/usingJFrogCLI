@@ -50,6 +50,8 @@ Output
 ```
 {"info":"index of binary manager:default is in progress"}
 ```
+You can use the [reindex_multiple_repos_with_indexBinMgrWithFilter.sh](reindex_multiple_repos_with_indexBinMgrWithFilter.sh) as mentioned in 
+[reindex_multiple_repos_with_indexBinMgrWithFilter.md](reindex_multiple_repos_with_indexBinMgrWithFilter.md)
 
 ---
 ## Index artifacts
@@ -206,6 +208,7 @@ So use the  script [find_unindexed_repos.sh](find_unindexed_repos.sh) instead.
 ---
 
 What is the rest api to index a repo that is not already indexed for Xray scans?
+
 If your use case is to add the repository to the indexed list, I would recommend using the REST API to update the
 repository configuration as mentioned in [Update Repository Configuration](https://jfrog.com/help/r/jfrog-rest-apis/update-repository-configuration)  API.
 In short:
@@ -234,12 +237,17 @@ jf xr cl -XPUT /api/v1/binMgr/default/repos  -H "Content-Type: application/json"
     ]
     }' --server-id=psazuse
 ```
+Use the [toggle_enable_indexing_in_xray_for_repos.sh](toggle_enable_indexing_in_xray_for_repos.sh) as mentioned in 
+[toggle_enable_indexing_in_xray_for_repos.md](toggle_enable_indexing_in_xray_for_repos.md)
+
 ---
 
 I want to reindex all the repos ( that have "Enable Indexing In Xray" i.e xrayIndex  enabled ) in my artifactory for 
 enabling full XRAY scan . I don't want to do it repo by repo manually. How to do it ?
 
-First, you should get names of indexed repositories via the following API call.
+**Option1:**
+
+Get names of indexed repositories via the following API call.
 ```text
 jf xr cl /api/v1/binMgr/{id}/repos | jq  '.indexed_repos[] | .name'
 ```
@@ -253,6 +261,19 @@ For your convenience the [reindex_repos_enabled_for_xray_indexing.sh](reindex_re
 script  reindexes repositories enabled for Xray indexing on a specified Artifactory server. It retrieves the list of 
 binary manager IDs and their associated repositories, then reindexes each repository. See  
 [reindex_repos_enabled_for_xray_indexing.md](reindex_repos_enabled_for_xray_indexing.md) for details.
+
+**Option2:**
+
+You can also use  the [reindex_multiple_repos_with_indexBinMgrWithFilter.sh](reindex_multiple_repos_with_indexBinMgrWithFilter.sh) as mentioned in
+[reindex_multiple_repos_with_indexBinMgrWithFilter.md](reindex_multiple_repos_with_indexBinMgrWithFilter.md)
+
+**Option3:**
+
+If you want to index only the artifacts with “expired” retention period in a repo you can use:
+
+a) [get_artifact_index_status_and_forceReindex_with_jf.sh](../get_all_repos_IndexStatusReport/get_artifact_index_status_and_forceReindex_with_jf.sh) which uses `Force Reindex`   API.
+
+b) [get_artifact_index_status_and_scannow_with_jf.sh](../get_all_repos_IndexStatusReport/get_artifact_index_status_and_scannow_with_jf.sh)  which uses   “Scan Now” API ( Enables you to index resources on-demand, even those that were not marked for indexing)
 
 ---
 ## Builds
