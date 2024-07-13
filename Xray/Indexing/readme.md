@@ -33,45 +33,6 @@ default
 
 ---
 
-How can I trigger the "index now" button found in the Xray UI (refer to the screenshots below) through the API?
-![Index Now](index_now.png)
-![Index Selection](index_selection.png)
-
-You can trigger the "index now" action using the internal APIs employed by the UI as follows:
-Note: These are internal APIs and may be subject to change.
-```text
-curl -XPOST  -uadmin:<password> '<JFROG_PLATFORM_URL>/xray/ui/unified/indexBinMgrWithFilter'   --data-raw '{"repos":["<repo_name>"],"filter":{"include_pattern":"**","exclude_pattern":""}}'
-```
-or
-```text
-curl -XPOST  -uadmin:<password> '<JFROG_PLATFORM_URL>/xray/ui/unified/indexBinMgrWithFilter'   --data-raw '{"repos":["acme-maven-dev-local"],"filter":{"include_pattern":"**","exclude_pattern":"","time_range":"90d"}}'
-```
-Output
-```
-{"info":"index of binary manager:default is in progress"}
-```
-You can use the [reindex_multiple_repos_with_indexBinMgrWithFilter.sh](reindex_multiple_repos_with_indexBinMgrWithFilter.sh) as mentioned in 
-[reindex_multiple_repos_with_indexBinMgrWithFilter.md](reindex_multiple_repos_with_indexBinMgrWithFilter.md)
-
----
-## Index artifacts
-To run the same  "index now" for artifacts not indexed for last 10 days ?
-```text
-curl -XPOST  -uadmin:<password> '<JFROG_PLATFORM_URL>/xray/ui/unified/indexBinMgrWithFilter'   --data-raw '{"repos":
-["<repo_name>"],"filter":{"include_pattern":"**","exclude_pattern":"","time_range":"10d"}}'
-```
-Output:
-```text
-{"info":"index of binary manager:default is in progress"}
-```
-
-Logs the following in the `xray-indexer-service.log`:
-```text
-2022-03-24T21:00:40.596Z [33m[jfxid][0m [34m[INFO ][0m [44d76f7888a4216b] [downloader:75         ] [main        ] Event worker id 1 is processing message from index --> repo maven-central-local-safe-prod
-```
----
-
-
 ## Index release bundle
 
 Script to index/scan each artifact in a release bundle:
@@ -241,6 +202,45 @@ Use the [toggle_enable_indexing_in_xray_for_repos.sh](toggle_enable_indexing_in_
 [toggle_enable_indexing_in_xray_for_repos.md](toggle_enable_indexing_in_xray_for_repos.md)
 
 ---
+How can I trigger the "index now" button found in the Xray UI (refer to the screenshots below) through the API for 
+repos that have `Xray Indexing` enabled ?
+
+![Index Now](index_now.png)
+![Index Selection](index_selection.png)
+
+You can trigger the "index now" action using the internal APIs employed by the UI as follows:
+Note: These are internal APIs and may be subject to change.
+```text
+curl -XPOST  -uadmin:<password> '<JFROG_PLATFORM_URL>/xray/ui/unified/indexBinMgrWithFilter'   --data-raw '{"repos":["<repo_name>"],"filter":{"include_pattern":"**","exclude_pattern":""}}'
+```
+or
+```text
+curl -XPOST  -uadmin:<password> '<JFROG_PLATFORM_URL>/xray/ui/unified/indexBinMgrWithFilter'   --data-raw '{"repos":["acme-maven-dev-local"],"filter":{"include_pattern":"**","exclude_pattern":"","time_range":"90d"}}'
+```
+Output
+```
+{"info":"index of binary manager:default is in progress"}
+```
+You can use the [reindex_multiple_repos_with_indexBinMgrWithFilter.sh](reindex_multiple_repos_with_indexBinMgrWithFilter.sh) as mentioned in
+[reindex_multiple_repos_with_indexBinMgrWithFilter.md](reindex_multiple_repos_with_indexBinMgrWithFilter.md)
+
+---
+## Index artifacts
+To run the same  "index now" for artifacts not indexed for last 10 days ?
+```text
+curl -XPOST  -uadmin:<password> '<JFROG_PLATFORM_URL>/xray/ui/unified/indexBinMgrWithFilter'   --data-raw '{"repos":
+["<repo_name>"],"filter":{"include_pattern":"**","exclude_pattern":"","time_range":"10d"}}'
+```
+Output:
+```text
+{"info":"index of binary manager:default is in progress"}
+```
+
+Logs the following in the `xray-indexer-service.log`:
+```text
+2022-03-24T21:00:40.596Z [33m[jfxid][0m [34m[INFO ][0m [44d76f7888a4216b] [downloader:75         ] [main        ] Event worker id 1 is processing message from index --> repo maven-central-local-safe-prod
+```
+---
 
 I want to reindex all the repos ( that have "Enable Indexing In Xray" i.e xrayIndex  enabled ) in my artifactory for 
 enabling full XRAY scan . I don't want to do it repo by repo manually. How to do it ?
@@ -259,8 +259,12 @@ jf xr cl  -XPOST  -H "content-type:application/json" /api/v1/index/repository/<r
 
 For your convenience the [reindex_repos_enabled_for_xray_indexing.sh](reindex_repos_enabled_for_xray_indexing.sh) 
 script  reindexes repositories enabled for Xray indexing on a specified Artifactory server. It retrieves the list of 
-binary manager IDs and their associated repositories, then reindexes each repository. See  
+binary manager IDs and their associated repositories that have `Xray Indexing` enabled, then reindexes each repository. See  
 [reindex_repos_enabled_for_xray_indexing.md](reindex_repos_enabled_for_xray_indexing.md) for details.
+
+If any repository does not have `Xray Indexing` enabled you can enable the `Xray Indexing` by using the 
+[toggle_enable_indexing_in_xray_for_repos.sh](toggle_enable_indexing_in_xray_for_repos.sh) as mentioned in
+[toggle_enable_indexing_in_xray_for_repos.md](toggle_enable_indexing_in_xray_for_repos.md)
 
 **Option2:**
 
