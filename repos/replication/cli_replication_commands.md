@@ -21,3 +21,16 @@ Note: To filter based on equals i.e "[Select objects based on value of variable 
 ```text
 $ jq '.[] | select(.location=="Stockholm")' json
 ```
+---
+
+Run a PUSH replication:
+
+From the browser inspect do a run replication and found the url is:
+"$ARTIFACTORY/ui/api/v1/ui/admin/repositories/executeall?repoKey=example-repo-local"
+So the corresponding admin API in artifactory is:
+```
+jf rt curl -XPOST "/api/admin/repositories/executeall?repoKey=example-repo-local" --server-id=mill
+```
+Output:
+{"info":"Replication tasks scheduling finished successfully"}
+---

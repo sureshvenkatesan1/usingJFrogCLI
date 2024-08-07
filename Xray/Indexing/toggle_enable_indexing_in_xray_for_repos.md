@@ -9,22 +9,30 @@ This [toggle_enable_indexing_in_xray_for_repos.sh](toggle_enable_indexing_in_xra
 
 ## Usage
 
+You can get the list of `local` , `remote` and `federated` repos in the JPD  using the following for the `<repo-name1> [<repo-name2> ... <repo-nameN>]` :
 ```bash
+jf rt curl -s -XGET "/api/repositories?type=local"  --server-id=psazuse | jq -r '.[] | .key' | tr '\n' ' ' > repos.txt
+
+jf rt curl -s -XGET "/api/repositories?type=remote"  --server-id=psazuse | jq -r '.[] | .key' | tr '\n' ' ' > repos.txt
+
+jf rt curl -s -XGET "/api/repositories?type=federated"  --server-id=psazuse | jq -r '.[] | .key' | tr '\n' ' ' > repos.txt
+```
+The toggle the Xray indexing for only specific repos from  the above `repos.txt` output file  using :
+```
 ./toggle_enable_indexing_in_xray_for_repos.sh <server-id> <enable> <repo-name1> [<repo-name2> ... <repo-nameN>]
+```
+or 
+
+toggle for all repos in `repos.txt` you can use:
+```
+./toggle_enable_indexing_in_xray_for_repos.sh <server-id> <enable> $(cat repos.txt)
 ```
 
 - `<server-id>`: The server ID of your JFrog Artifactory instance.
 - `<enable>`: Set to `true` to enable Xray indexing or `false` to disable Xray indexing.
 - `<repo-name1> [<repo-name2> ... <repo-nameN>]`: A list of one or more repository names for which you want to toggle the Xray indexing.
 
-You can get the list of `local` , `remote` and `federated` repos in the JPD  using the following for the `<repo-name1> [<repo-name2> ... <repo-nameN>]` :
-```bash
-jf rt curl -s -XGET "/api/repositories?type=local"  --server-id=psazuse | jq -r '.[] | .key' | tr '\n' ' '
 
-jf rt curl -s -XGET "/api/repositories?type=remote"  --server-id=psazuse | jq -r '.[] | .key' | tr '\n' ' '
-
-jf rt curl -s -XGET "/api/repositories?type=federated"  --server-id=psazuse | jq -r '.[] | .key' | tr '\n' ' '
-```
 ### Example
 
 Enable Xray indexing:
