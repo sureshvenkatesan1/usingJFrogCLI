@@ -17,7 +17,7 @@ jf rt curl -s -XGET "/api/repositories?type=remote"  --server-id=psazuse | jq -r
 
 jf rt curl -s -XGET "/api/repositories?type=federated"  --server-id=psazuse | jq -r '.[] | .key' | tr '\n' ' ' > repos.txt
 ```
-The toggle the Xray indexing for only specific repos from  the above `repos.txt` output file  using :
+Then toggle the Xray indexing for only specific repos from  the above `repos.txt` output file  using :
 ```
 ./toggle_enable_indexing_in_xray_for_repos.sh <server-id> <enable> <repo-name1> [<repo-name2> ... <repo-nameN>]
 ```
