@@ -208,7 +208,8 @@ repos that have `Xray Indexing` enabled ?
 ![Index Now](index_now.png)
 ![Index Selection](index_selection.png)
 
-You can trigger the "index now" action using the internal APIs employed by the UI as follows:
+You can trigger the "index now" action using the internal APIs  similar to the one  triggered when indexing from the   
+Jfrog UI as follows:
 Note: These are internal APIs and may be subject to change.
 ```text
 curl -XPOST  -uadmin:<password> '<JFROG_PLATFORM_URL>/xray/ui/unified/indexBinMgrWithFilter'   --data-raw '{"repos":["<repo_name>"],"filter":{"include_pattern":"**","exclude_pattern":""}}'
@@ -269,7 +270,9 @@ If any repository does not have `Xray Indexing` enabled you can enable the `Xray
 **Option2:**
 
 You can also use  the [reindex_multiple_repos_with_indexBinMgrWithFilter.sh](reindex_multiple_repos_with_indexBinMgrWithFilter.sh) as mentioned in
-[reindex_multiple_repos_with_indexBinMgrWithFilter.md](reindex_multiple_repos_with_indexBinMgrWithFilter.md)
+[reindex_multiple_repos_with_indexBinMgrWithFilter.md](reindex_multiple_repos_with_indexBinMgrWithFilter.md) which  
+uses an internal API similar to the one  triggered when indexing from the  Jfrog UI .
+Note: Internal APIs and may be subject to change. 
 
 **Option3:**
 

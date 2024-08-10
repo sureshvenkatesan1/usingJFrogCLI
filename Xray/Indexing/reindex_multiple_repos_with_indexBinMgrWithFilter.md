@@ -1,7 +1,12 @@
 
 # Reindex Multiple Repositories with Xray's `indexBinMgrWithFilter` API
 
-This script automates the process of reindexing multiple repositories in JFrog Xray using the internal `indexBinMgrWithFilter` API. It fetches the list of repositories for each `binMgrId` and constructs a JSON 
+This script automates the process of reindexing multiple repositories in JFrog Xray using the internal 
+`indexBinMgrWithFilter` API  similar to the one  triggered when indexing from the   
+Jfrog UI .
+Note: These are internal APIs and may be subject to change.
+
+It fetches the list of repositories for each `binMgrId` and constructs a JSON 
 payload to reindex these repositories.
 
 ## Prerequisites
