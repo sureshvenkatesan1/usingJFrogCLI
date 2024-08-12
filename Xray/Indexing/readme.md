@@ -275,7 +275,8 @@ You can also use  the [reindex_multiple_repos_with_indexBinMgrWithFilter.sh](rei
 [reindex_multiple_repos_with_indexBinMgrWithFilter.md](reindex_multiple_repos_with_indexBinMgrWithFilter.md) which  
 uses an internal API `'<JFROG_PLATFORM_URL>/xray/ui/unified/indexBinMgrWithFilter'` similar to the one  triggered 
 when indexing from the  Jfrog UI .
-Note: Internal APIs and may be subject to change.
+
+**Note:** Internal APIs and may be subject to change.
 
 **Option3:**
 
@@ -285,7 +286,8 @@ a) [get_artifact_index_status_and_forceReindex_with_jf.sh](../get_all_repos_Inde
 
 b) [get_artifact_index_status_and_scannow_with_jf.sh](../get_all_repos_IndexStatusReport/get_artifact_index_status_and_scannow_with_jf.sh)  which uses   [Scan Now](https://jfrog.com/help/r/xray-rest-apis/scan-now) API ( Enables you to index resources on-demand, even those that were not marked for indexing)
 
-**Option4**
+**Option4:**
+
 The scripts
 - [reindex_specified_repos_enabled_for_xray_indexing_w_index_api.sh](reindex_specified_repos_enabled_for_xray_indexing_w_index_api.sh)
 - [reindex_specified_repos_enabled_for_xray_indexing_w_indexBinMgrWithFilter_api.sh](reindex_specified_repos_enabled_for_xray_indexing_w_indexBinMgrWithFilter_api.sh)
