@@ -229,26 +229,45 @@ See next section for 2 scripts that use the `/xray/ui/unified/indexBinMgrWithFil
 I want to reindex all the repos ( that have "Enable Indexing In Xray" i.e xrayIndex  enabled ) in my artifactory for
 enabling full XRAY scan . I don't want to do it repo by repo manually. How to do it ?
 
+or
+What is the workaround to  index  multiple repos in artifactory or  reindex  repo for artifacts whose index retention period expired ?
+
+As of now there is no single API that can index all repositories.
 **Option1:**
+Set `"Enable Indexing In Xray"` i.e xrayIndex enabled   for enabling full XRAY scan on multiple repositories in 
+Artifactory .
 
-Get names of indexed repositories via the following API call.
-```text
-jf xr cl /api/v1/binMgr/{id}/repos | jq  '.indexed_repos[] | .name'
-```
-
-Then index each repository from the list:
-```text
-jf xr cl  -XPOST  -H "content-type:application/json" /api/v1/index/repository/<repository_name>
-```
+If any repository does not have `Xray Indexing` enabled you can enable the `Xray Indexing` by using the
+[toggle_enable_indexing_in_xray_for_repos.sh](toggle_enable_indexing_in_xray_for_repos.sh) as mentioned in
+[toggle_enable_indexing_in_xray_for_repos.md](toggle_enable_indexing_in_xray_for_repos.md)
 
 For your convenience the [reindex_repos_enabled_for_xray_indexing.sh](reindex_repos_enabled_for_xray_indexing.sh)
 script  reindexes repositories enabled for Xray indexing on a specified Artifactory server. It retrieves the list of
 binary manager IDs and their associated repositories that have `Xray Indexing` enabled, then reindexes each repository. See  
 [reindex_repos_enabled_for_xray_indexing.md](reindex_repos_enabled_for_xray_indexing.md) for details.
 
-If any repository does not have `Xray Indexing` enabled you can enable the `Xray Indexing` by using the
-[toggle_enable_indexing_in_xray_for_repos.sh](toggle_enable_indexing_in_xray_for_repos.sh) as mentioned in
-[toggle_enable_indexing_in_xray_for_repos.md](toggle_enable_indexing_in_xray_for_repos.md)
+It uses below logic:
+
+a) First, you may get names of indexed repositories via the following API call.
+```text
+jf xr cl /api/v1/binMgr/{id}/repos --server-id  <YOURSERVERID> -s | jq  '.indexed_repos[] | .name' 
+```
+
+b) Then for each repo enabled  for indexing index invoke the  POST /api/v1/index/repository/{name}API like the following  :
+```text
+jf xr cl  -XPOST  -H "content-type:application/json" /api/v1/index/repository/<repository_name> --server-id  <YOURSERVERID> -s
+```
+Output:
+```
+{"info":"Repository <repository_name> has been sent to index"}
+```
+Note: The wierdness of this API is though it is a -XPOST and Content-Type header should still be application/json it 
+does not take any json payload. It uses only the repo name in POST /api/v1/index/repository/{name} and   indexes all 
+artifacts in the repo . It could potentially reuse previous scan results for those artifacts whose  retention period 
+has not “expired” . It is not documented and there is an internal  Jira DOC-1843 / XRAY-16698 logged. It was done for 
+internal usage when it was developed. Artifactory internally uses this api.
+
+
 
 **Option2:**
 
