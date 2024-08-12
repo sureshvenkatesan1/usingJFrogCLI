@@ -59,7 +59,7 @@ rm files-bundle.txt
 
 ---
 
-## Repos:
+## Index Repos:
 Get the Xray specific repository configuration:
 
 Use the API ["Get Repositories Configurations"](https://jfrog.com/help/r/xray-rest-apis/get-repositories-configurations)
@@ -222,8 +222,56 @@ Output
 ```
 {"info":"index of binary manager:default is in progress"}
 ```
-You can use the [reindex_multiple_repos_with_indexBinMgrWithFilter.sh](reindex_multiple_repos_with_indexBinMgrWithFilter.sh) as mentioned in
-[reindex_multiple_repos_with_indexBinMgrWithFilter.md](reindex_multiple_repos_with_indexBinMgrWithFilter.md)
+See next section for 2 scripts that use the `/xray/ui/unified/indexBinMgrWithFilter` API.
+
+---
+
+I want to reindex all the repos ( that have "Enable Indexing In Xray" i.e xrayIndex  enabled ) in my artifactory for
+enabling full XRAY scan . I don't want to do it repo by repo manually. How to do it ?
+
+**Option1:**
+
+Get names of indexed repositories via the following API call.
+```text
+jf xr cl /api/v1/binMgr/{id}/repos | jq  '.indexed_repos[] | .name'
+```
+
+Then index each repository from the list:
+```text
+jf xr cl  -XPOST  -H "content-type:application/json" /api/v1/index/repository/<repository_name>
+```
+
+For your convenience the [reindex_repos_enabled_for_xray_indexing.sh](reindex_repos_enabled_for_xray_indexing.sh)
+script  reindexes repositories enabled for Xray indexing on a specified Artifactory server. It retrieves the list of
+binary manager IDs and their associated repositories that have `Xray Indexing` enabled, then reindexes each repository. See  
+[reindex_repos_enabled_for_xray_indexing.md](reindex_repos_enabled_for_xray_indexing.md) for details.
+
+If any repository does not have `Xray Indexing` enabled you can enable the `Xray Indexing` by using the
+[toggle_enable_indexing_in_xray_for_repos.sh](toggle_enable_indexing_in_xray_for_repos.sh) as mentioned in
+[toggle_enable_indexing_in_xray_for_repos.md](toggle_enable_indexing_in_xray_for_repos.md)
+
+**Option2:**
+
+You can also use  the [reindex_multiple_repos_with_indexBinMgrWithFilter.sh](reindex_multiple_repos_with_indexBinMgrWithFilter.sh) as mentioned in
+[reindex_multiple_repos_with_indexBinMgrWithFilter.md](reindex_multiple_repos_with_indexBinMgrWithFilter.md) which  
+uses an internal API similar to the one  triggered when indexing from the  Jfrog UI .
+Note: Internal APIs and may be subject to change.
+
+**Option3:**
+
+If you want to index only the artifacts with “expired” retention period in a repo you can use:
+
+a) [get_artifact_index_status_and_forceReindex_with_jf.sh](../get_all_repos_IndexStatusReport/get_artifact_index_status_and_forceReindex_with_jf.sh) which uses [Force Reindex](https://jfrog.com/help/r/xray-rest-apis/force-reindex)   API.
+
+b) [get_artifact_index_status_and_scannow_with_jf.sh](../get_all_repos_IndexStatusReport/get_artifact_index_status_and_scannow_with_jf.sh)  which uses   [Scan Now](https://jfrog.com/help/r/xray-rest-apis/scan-now) API ( Enables you to index resources on-demand, even those that were not marked for indexing)
+
+**Option4**
+The scripts
+- [reindex_specified_repos_enabled_for_xray_indexing_w_index_api.sh](reindex_specified_repos_enabled_for_xray_indexing_w_index_api.sh)
+- [reindex_specified_repos_enabled_for_xray_indexing_w_indexBinMgrWithFilter_api.sh](reindex_specified_repos_enabled_for_xray_indexing_w_indexBinMgrWithFilter_api.sh)
+
+enables Xray indexing for specified repositories in JFrog Artifactory and then triggers reindexing for those repositories.
+Please see [reindex_specified_repos_enabled_for_xray_indexing.md](reindex_specified_repos_enabled_for_xray_indexing.md) for details.
 
 ---
 ## Index artifacts
@@ -241,46 +289,6 @@ Logs the following in the `xray-indexer-service.log`:
 ```text
 2022-03-24T21:00:40.596Z [33m[jfxid][0m [34m[INFO ][0m [44d76f7888a4216b] [downloader:75         ] [main        ] Event worker id 1 is processing message from index --> repo maven-central-local-safe-prod
 ```
----
-
-I want to reindex all the repos ( that have "Enable Indexing In Xray" i.e xrayIndex  enabled ) in my artifactory for 
-enabling full XRAY scan . I don't want to do it repo by repo manually. How to do it ?
-
-**Option1:**
-
-Get names of indexed repositories via the following API call.
-```text
-jf xr cl /api/v1/binMgr/{id}/repos | jq  '.indexed_repos[] | .name'
-```
-
-Then index each repository from the list:
-```text
-jf xr cl  -XPOST  -H "content-type:application/json" /api/v1/index/repository/<repository_name>
-```
-
-For your convenience the [reindex_repos_enabled_for_xray_indexing.sh](reindex_repos_enabled_for_xray_indexing.sh) 
-script  reindexes repositories enabled for Xray indexing on a specified Artifactory server. It retrieves the list of 
-binary manager IDs and their associated repositories that have `Xray Indexing` enabled, then reindexes each repository. See  
-[reindex_repos_enabled_for_xray_indexing.md](reindex_repos_enabled_for_xray_indexing.md) for details.
-
-If any repository does not have `Xray Indexing` enabled you can enable the `Xray Indexing` by using the 
-[toggle_enable_indexing_in_xray_for_repos.sh](toggle_enable_indexing_in_xray_for_repos.sh) as mentioned in
-[toggle_enable_indexing_in_xray_for_repos.md](toggle_enable_indexing_in_xray_for_repos.md)
-
-**Option2:**
-
-You can also use  the [reindex_multiple_repos_with_indexBinMgrWithFilter.sh](reindex_multiple_repos_with_indexBinMgrWithFilter.sh) as mentioned in
-[reindex_multiple_repos_with_indexBinMgrWithFilter.md](reindex_multiple_repos_with_indexBinMgrWithFilter.md) which  
-uses an internal API similar to the one  triggered when indexing from the  Jfrog UI .
-Note: Internal APIs and may be subject to change. 
-
-**Option3:**
-
-If you want to index only the artifacts with “expired” retention period in a repo you can use:
-
-a) [get_artifact_index_status_and_forceReindex_with_jf.sh](../get_all_repos_IndexStatusReport/get_artifact_index_status_and_forceReindex_with_jf.sh) which uses `Force Reindex`   API.
-
-b) [get_artifact_index_status_and_scannow_with_jf.sh](../get_all_repos_IndexStatusReport/get_artifact_index_status_and_scannow_with_jf.sh)  which uses   “Scan Now” API ( Enables you to index resources on-demand, even those that were not marked for indexing)
 
 ---
 ## Builds
