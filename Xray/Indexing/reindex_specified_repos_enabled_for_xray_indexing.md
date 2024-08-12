@@ -39,7 +39,7 @@ group
 ### Example
 
 ```bash
-./reindex_specified_repos_enabled_for_xray_indexing.sh myServerID green-npm-dev-local krishnam-docker-dev-local sunil-npm-local
+./reindex_specified_repos_enabled_for_xray_indexing_w_index_api.sh myServerID green-npm-dev-local krishnam-docker-dev-local sunil-npm-local
 ```
 
 This command will:
