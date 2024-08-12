@@ -273,7 +273,8 @@ internal usage when it was developed. Artifactory internally uses this api.
 
 You can also use  the [reindex_multiple_repos_with_indexBinMgrWithFilter.sh](reindex_multiple_repos_with_indexBinMgrWithFilter.sh) as mentioned in
 [reindex_multiple_repos_with_indexBinMgrWithFilter.md](reindex_multiple_repos_with_indexBinMgrWithFilter.md) which  
-uses an internal API similar to the one  triggered when indexing from the  Jfrog UI .
+uses an internal API `'<JFROG_PLATFORM_URL>/xray/ui/unified/indexBinMgrWithFilter'` similar to the one  triggered 
+when indexing from the  Jfrog UI .
 Note: Internal APIs and may be subject to change.
 
 **Option3:**
