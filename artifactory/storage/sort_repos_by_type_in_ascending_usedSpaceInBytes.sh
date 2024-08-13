@@ -23,11 +23,13 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Extract and sort repoKeys based on usedSpaceInBytes for the given REPO_TYPE, excluding those with usedSpaceInBytes == 0
+# Check if the REPO_TYPE is CACHE, if so remove the "-cache" suffix
 REPO_KEYS=$(echo "$JSON_OUTPUT" | jq -r --arg REPO_TYPE "$REPO_TYPE" \
   '.repositoriesSummaryList
    | map(select(.repoType == $REPO_TYPE and .usedSpaceInBytes > 0))
    | sort_by(.usedSpaceInBytes)
-   | .[].repoKey' | xargs)
+   | .[].repoKey
+   | if $REPO_TYPE == "CACHE" then gsub("-cache$"; "") else . end' | xargs)
 
 # Check if any repos were found
 if [[ -z "$REPO_KEYS" ]]; then
