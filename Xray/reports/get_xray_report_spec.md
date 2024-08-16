@@ -14,6 +14,7 @@ This [get_xray_report_spec.sh](get_xray_report_spec.sh) script is designed to in
 - JFrog Xray must be accessible via the provided `ARTIFACTORY_BASE_URL`.
 - A valid JFrog API token (`MYTOKEN`).
 - `jq` installed on your system to parse JSON responses.
+- The internal `vulnerabilities/spec` JFrog API worked with this script from `"xray_version":"3.102.3"` . with `"xray_version":"3.101.5"` it fails with HTTP 401.
 
 ## Usage
 
@@ -33,13 +34,13 @@ This [get_xray_report_spec.sh](get_xray_report_spec.sh) script is designed to in
 ### Example
 
 ```bash
-./get_xray_report_spec.sh "https://your-artifactory-url" "your-jfrog-token" "my-security-report"
+bash ./get_xray_report_spec.sh "https://example.jfrog.io" "your-jfrog-admin-token" "my-security-report"
 ```
 
 You can also specify a different number of rows to fetch:
 
 ```bash
-./get_xray_report_spec.sh "https://your-artifactory-url" "your-jfrog-token" "my-security-report" 500
+./get_xray_report_spec.sh "https://example.jfrog.io" "your-jfrog-admin-token" "my-security-report" 500
 ```
 
 ### Output
