@@ -30,43 +30,41 @@ def run_aql_query(server_id, aql_query):
         print("Raw output:", result.stdout)
         return None
 
-def fetch_artifacts(server_id, repo_name, items_per_page):
+def fetch_and_save_artifacts(server_id, repo_name, items_per_page, output_file):
     last_name = ""
-    all_artifacts = []
+    first_page = True
 
-    while True:
-        aql_query = (
-            f'items.find({{"repo": "{repo_name}", "name": {{"$gt": "{last_name}"}}}})'
-            '.include("name", "path", "actual_md5", "actual_sha1")'
-            '.sort({"$asc": ["name"]})'
-            f'.limit({items_per_page})'
-        )
-
-        result = run_aql_query(server_id, aql_query)
-
-        if not result or not result.get('results'):
-            break
-
-        all_artifacts.extend(result['results'])
-
-        # Update last_name for the next page of results
-        last_name = result['results'][-1]['name']
-
-    return all_artifacts
-
-def save_to_csv(artifacts, output_file):
     with open(output_file, 'w', newline='') as csvfile:
         fieldnames = ['name', 'path', 'actual_md5', 'actual_sha1']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
+        # Write header only once
         writer.writeheader()
-        for artifact in artifacts:
-            writer.writerow({
-                'name': artifact['name'],
-                'path': artifact['path'],
-                'actual_md5': artifact.get('actual_md5', ''),
-                'actual_sha1': artifact.get('actual_sha1', '')
-            })
+
+        while True:
+            aql_query = (
+                f'items.find({{"repo": "{repo_name}", "name": {{"$gt": "{last_name}"}}}})'
+                '.include("name", "path", "actual_md5", "actual_sha1")'
+                '.sort({"$asc": ["name"]})'
+                f'.limit({items_per_page})'
+            )
+
+            result = run_aql_query(server_id, aql_query)
+
+            if not result or not result.get('results'):
+                break
+
+            # Write the current page of artifacts to the CSV
+            for artifact in result['results']:
+                writer.writerow({
+                    'name': artifact['name'],
+                    'path': artifact['path'],
+                    'actual_md5': artifact.get('actual_md5', ''),
+                    'actual_sha1': artifact.get('actual_sha1', '')
+                })
+
+            # Update last_name for the next page of results
+            last_name = result['results'][-1]['name']
 
 def main():
     parser = argparse.ArgumentParser(description="Fetch artifacts from a JFrog Artifactory repository using AQL and save the output to a CSV file.")
@@ -77,13 +75,9 @@ def main():
 
     args = parser.parse_args()
 
-    artifacts = fetch_artifacts(args.server_id, args.repo_name, args.items_per_page)
+    fetch_and_save_artifacts(args.server_id, args.repo_name, args.items_per_page, args.output_file)
 
-    if artifacts:
-        save_to_csv(artifacts, args.output_file)
-        print(f"Saved {len(artifacts)} artifacts to {args.output_file}")
-    else:
-        print("No artifacts found or an error occurred.")
+    print(f"Artifacts have been saved to {args.output_file}")
 
 if __name__ == "__main__":
     main()
