@@ -1,7 +1,9 @@
 
 # Fetch All Artifacts in a Repository using AQL with JFrog CLI
 
-This Python script fetches all artifacts in a specified JFrog Artifactory repository using an AQL query. The results are paginated and saved to a CSV file. The script leverages the JFrog CLI for executing the AQL queries.
+The [fetch_all_artifacts_in_repo_using_aql_paginate.py](fetch_all_artifacts_in_repo_using_aql_paginate.py) Python script fetches all artifacts in a specified JFrog 
+Artifactory repository using an AQL query. The results 
+are paginated and saved to a CSV file. The script leverages the JFrog CLI for executing the AQL queries.
 
 ## Prerequisites
 
