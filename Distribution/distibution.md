@@ -16,9 +16,10 @@ All APIs are in https://jfrog.com/help/r/jfrog-rest-apis/release-bundles-v1
 ```
    curl -u $MYUSER:$MYPASSWORD -H "Content-Type: application/json" -X POST "$PROTOCOL://$MYSERVERHOST_IP/distribution/api/v1/distribution/lenovo-sample-rb/1.0" -T distribute.json
 ```
-=================
-Another example from https://jira.jfrog.org/browse/XRAY-9855
+---
 
+Another example from https://jira.jfrog.org/browse/XRAY-9855
+```
 export VISION_TOKEN=""
 export JF_ENTPLUS_USER=""
 export JF_ENTPLUS_TOKEN=""
@@ -28,41 +29,46 @@ export OUTPUT_FILENAME="xray_exposures.tar.zst"
 export JF_ENTPLUS_SOURCE_REPO="jfsexp-xray-exposures-dev"
 export JF_RELEASES_TARGET_REPO="jfsexp-xray-exposures-dev"
 export JF_ENTPLUS_BUNDLE_VERSION="1.1"
-
+```
 # Get from Vision
+```
 curl -X GET -H "Authorization: Token ${VISION_TOKEN}" http://127.0.0.1:8000/v1/xray/exposures/ --output ${OUTPUT_FILENAME}
-
+```
 # Upload to repo21
+```
 curl -X PUT -u "${JF_ENTPLUS_USER}:${JF_ENTPLUS_TOKEN}" "https://entplus.jfrog.io/artifactory/${JF_ENTPLUS_SOURCE_REPO}/${OUTPUT_FILENAME}" --data-binary @${OUTPUT_FILENAME}
-
+```
 # Create Release Bundle
+```
 curl -X POST -u "${JF_ENTPLUS_USER}:${JF_ENTPLUS_TOKEN}" "https://entplus.jfrog.io/distribution/api/v1/release_bundle" -H "Content-Type: application/json" -d "{\"sign_immediately\": true, \"dry_run\": false, \"name\": \"${JF_ENTPLUS_SOURCE_REPO}\", \"version\": \"${JF_ENTPLUS_BUNDLE_VERSION}\", \"spec\": {\"queries\": [{\"aql\": \"items.find({{ \\\"repo\\\": \\\"${JF_RELEASES_TARGET_REPO}\\\", \\\"name\\\": \\\"${OUTPUT_FILENAME}\\\" }})\", \"query_name\": \"package-query\"}],\"source_artifactory_id\": \"\"}}"
-
+```
 # Distribute release bundle
+```
 curl -X POST -u "${JF_ENTPLUS_USER}:${JF_ENTPLUS_TOKEN}" "https://entplus.jfrog.io/distribution/api/v1/distribution/jfrog-exposures/${RELEASE_BUNDLE_VERSION}" -H "Content-Type: application/json" -d "{\"distribution_rules\": [{\"site_name\": \"releases.jfrog.io\"}]}"
-
+```
 # Get SignedURL from releases
+```
 echo $(curl -X POST -H "X-JFrog-Art-Api:${JF_RELEASES_TOKEN}" "https://releases.jfrog.io/artifactory/api/signed/url" -H "Content-Type: application/json" -d "{ \"repo_path\": \"/jfrog-exposures/${OUTPUT_FILENAME}\", \"valid_for_secs\":31536000}")
-
+```
 ---
 ## Check Distribution Service Healthcheck
 
 You can use the Distribution Service APIs listed under https://jfrog.com/help/r/jfrog-rest-apis/general for the Service Status as below:
 
 Note: Instead of psazuse.jfrog.io use your artifactory base url in below APIs.
-
+```
 curl -H "Authorization: Bearer $MYTOKEN"  "https://psazuse.jfrog.io/distribution/api/v1/system/ping"
-
+```
 Output:
 {"message":"ok","status_code":200}
-
+```
 curl -H "Authorization: Bearer $MYTOKEN"  "https://psazuse.jfrog.io/distribution/api/v1/system/info"
-
+```
 Output:
 {"status":"STABLE","version":"2.24.0","service_id":"jfds@01hq5ham68b9hs1hk5mkeg10nb"}%
-
+```
 curl -H "Authorization: Bearer $MYTOKEN"  "https://psazuse.jfrog.io/distribution/api/v1/system/settings"
-
+```
 Output:
 {"call_home_enabled":true}
 
