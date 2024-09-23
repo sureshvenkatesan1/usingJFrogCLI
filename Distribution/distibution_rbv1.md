@@ -24,11 +24,11 @@ You can use [generate_gpg_key.sh](generate_gpg_key.sh) as mentioned in [generate
 
 - [Upload GPG Signing Keys](https://jfrog.com/help/r/jfrog-rest-apis/upload-and-propagate-gpg-signing-keys-for-distribution) (can also be done from the UI) as  mentioned in KB [DISTRIBUTION: How to resolve Failed to set the PGP key during GPG keys upload](https://jfrog.com/help/r/distribution-how-to-resolve-failed-to-set-the-pgp-key-during-gpg-keys-upload)
 ``` 
-curl -u'admin:Password1*'  -H "Accept: application/json" -H "Content-Type: application/json" -X PUT "localhost:8082/distribution/api/v1/keys/gpg" -T gpg.json
+curl -u $MYUSER:$MYPASSWORD  -H "Accept: application/json" -H "Content-Type: application/json" -X POST "localhost:8082/distribution/api/v1/keys/gpg" -T gpg.json
 ```
 - Propagate GPG signing keys to any new  distribution edges you register
 ```
-curl localhost:8082/distribution/api/v1/keys/gpg/propagate -u'admin:Password1*' -XPOST
+curl localhost:8082/distribution/api/v1/keys/gpg/propagate -u $MYUSER:$MYPASSWORD -XPOST
 ```
 - Create a distribution bundle, sign it, and release it
 
