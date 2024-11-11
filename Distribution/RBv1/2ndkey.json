@@ -1,0 +1,24 @@
+{"key": { "public_key": "-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQENBGFvtOABCADMmFcF4P6fYH/uYHJiPEXbYkB22eEbSDLufPlv5DXz8YckWY7p
+whHVb8Trh4fK5/dOB6vp6M+HpjXFP5RFhucAGz/7exgQhCEOEdwHexECzeilD+Hc
+auXwfFnq7zEiEM+8vxR5SsIWF+/TGQw6pFPPEOsn90i56AKKYefXQYsKhAcCJFMF
+XryIpW2VR1TecUjIIyqBx8WZ/CuKuReTYdQXCp35SD9UlZ+Kke57O74NKr3Mzd+E
+...
+xqPP9NM6qm+Q/dfCxu5PjMr4Lf06FHf7kPn3dNu0kmIAbba6OEGYe6lEuxLnMuuP
+NUKNn/WJb26rQaGPdTHmjoVc+bpmIcPE6HryAZ27ARdnoeWKhtdJAXrBM6AFeg+J
+7q1QKJt4D5s4Nn/VLd6ksCj7RIB6WRKgk5GKmJH2YtjgkD7qnaNtsxZUBsWkb7fS
+OIANxpwOaB8xO1z416lZVUCvDCAnQXjwbRE4QHwnolyRL8dLiOMKMuz3Jn0+Lc0=
+=baBr
+-----END PGP PUBLIC KEY BLOCK-----", "private_key":"-----BEGIN PGP PRIVATE KEY BLOCK-----
+
+lQPGBGFvtOABCADMmFcF4P6fYH/uYHJiPEXbYkB22eEbSDLufPlv5DXz8YckWY7p
+whHVb8Trh4fK5/dOB6vp6M+HpjXFP5RFhucAGz/7exgQhCEOEdwHexECzeilD+Hc
+auXwfFnq7zEiEM+8vxR5SsIWF+/TGQw6pFPPEOsn90i56AKKYefXQYsKhAcCJFMF
+...
+6481Qo2f9YlvbqtBoY91MeaOhVz5umYhw8ToevIBnbsBF2eh5YqG10kBesEzoAV6
+D4nurVAom3gPmzg2f9Ut3qSwKPtEgHpZEqCTkYqYkfZi2OCQPuqdo22zFlQGxaRv
+t9I4gA3GnA5oHzE7XPjXqVlVQK8MICdBePBtEThAfCeiXJEvx0uI4woy7PcmfT4t
+zQ==
+=D4ad
+-----END PGP PRIVATE KEY BLOCK-----"}, "propagate_to_edge_nodes": true, "fail_on_propagation_failure": false, "set_as_default": true }
