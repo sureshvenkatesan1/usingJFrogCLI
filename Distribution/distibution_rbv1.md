@@ -22,15 +22,61 @@ Create a gpg.json like below:
 
 You can use [generate_gpg_key.sh](generate_gpg_key.sh) as mentioned in [generate_gpg_key.md](generate_gpg_key.md)
 
+```
+mkdir -p /tmp/test/
+
+bash ./Distribution/generate_gpg_key.sh "jfrog_distribution_key" "jfrog_distribution_key" "jfrog_distribution_key@jfrog.com" 2048 0 /tmp/gpg /tmp/test/thekey1.json
+
+```
+
 - [Upload GPG Signing Keys](https://jfrog.com/help/r/jfrog-rest-apis/upload-and-propagate-gpg-signing-keys-for-distribution) (can also be done from the UI) as  mentioned in KB [DISTRIBUTION: How to resolve Failed to set the PGP key during GPG keys upload](https://jfrog.com/help/r/distribution-how-to-resolve-failed-to-set-the-pgp-key-during-gpg-keys-upload)
 ``` 
 curl -u $MYUSER:$MYPASSWORD  -H "Accept: application/json" -H "Content-Type: application/json" -X POST "localhost:8082/distribution/api/v1/keys/gpg" -T gpg.json
+
+or
+
+curl -u $MYUSER:$MYPASSWORD  -H "Accept: application/json" -H "Content-Type: application/json" -X POST "https://examplepsazuse.jfrog.io/distribution/api/v1/keys/gpg" -T /tmp/test/thekey1.json
+
+```
+The key gets propagated to the Mothership and all JPDs and Edges:
+```
+{
+  "report": {
+    "status": "SUCCESS",
+    "details": [
+      {
+        "jpd_id": "JPD-1",
+        "name": "examplepsazuse",
+        "key_alias": "gpg-1726700297282",
+        "status": "SUCCESS"
+      },
+      {
+        "jpd_id": "JPD-3",
+        "name": "examplepsemea",
+        "key_alias": "gpg-1726700297282",
+        "status": "SUCCESS"
+      },
+      {
+        "jpd_id": "JPD-4",
+        "name": "examplesoleng",
+        "key_alias": "gpg-1726700297282",
+        "status": "SUCCESS"
+      },
+      {
+        "jpd_id": "JPD-2",
+        "name": "exaplepsazeuwedge",
+        "key_alias": "gpg-1726700297282",
+        "status": "SUCCESS"
+      }
+    ]
+  }
+}
 ```
 - Propagate GPG signing keys to any new  distribution edges you register
 ```
 curl localhost:8082/distribution/api/v1/keys/gpg/propagate -u $MYUSER:$MYPASSWORD -XPOST
 ```
-- Create a distribution bundle, sign it, and release it
+- Create a distribution bundle, sign it, and release it as explained in [publish_RBV1_bundle_and_distribute_to_edge_in_CI_pipeline.md](publish_RBV1_bundle_and_distribute_to_edge_in_CI_pipeline.md)
 
 ---
 
@@ -113,7 +159,7 @@ Get public key using:
 ```text
 ARTIFACTORY_BASE_URL=soleng.jfrog.io
 
-curl -u user:password -X GET "https://$ARTIFACTORY_BASE_URL/distribution/api/v1/keys/gpg"
+curl -u user:YOUR_PASSWORD -X GET "https://$ARTIFACTORY_BASE_URL/distribution/api/v1/keys/gpg"
 
 or
 
@@ -240,7 +286,7 @@ Output:
 ```
 ---
 
-Get the details ofa specific version
+Get the details of a specific version
 ```text
 curl -X GET -H "Authorization: Bearer $MYTOKEN" "https://$ARTIFACTORY_BASE_URL/distribution/api/v1/release_bundle/Gradle-Dist/1"
 ```
@@ -325,19 +371,25 @@ Output:
 ```
 ---
 
-api/v1/release_bundle/{{name}}/{{version}}/{{id}}  is for RBv1 only.
-for RBv2:
-api/v2/lifecycle/distribution/trackers/{release_bundle_name}/{release_bundle_version} will give you all the distributions of the bundle
+Note: `api/v1/release_bundle/{{name}}/{{version}}/{{id}}`  is for RBv1 only.
+
+For RBv2:
+
+`api/v2/lifecycle/distribution/trackers/{release_bundle_name}/{release_bundle_version}` will give you all the distributions of the bundle
 
 ---
-Customer thinks their Distribution GPG key usied to sign the Release bundle (RBv1) that was already distributed may 
+Customer thinks their Distribution GPG key used to sign the Release bundle (RBv1) that was already distributed may 
 have expired.
+
 In that case
+
 a) how to find out which GPG key was used to sign and distribute the RBv1 to the edge in their SH instance ?
+
 b) What should they do if their GPG key has expired ?
 
 You can use the [Get Release Bundle v1 Version](https://jfrog.com/help/r/jfrog-rest-apis/get-release-bundle-v1-version) API
-GET api/v1/release_bundle/:name/:version[?format=json | jws
+
+GET api/v1/release_bundle/{name}/{version}[?format=json | jws]
 ```text
 export ARTIFACTORY_BASE_URL=soleng.jfrog.io
 curl -X GET -H "Authorization: Bearer $MYTOKEN" "https://$ARTIFACTORY_BASE_URL/distribution/api/v1/release_bundle/droBundleApp/1.152?format=jws"

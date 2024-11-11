@@ -1,0 +1,14 @@
+{
+    "files": [
+      {
+        "aql": {
+          "items.find": {
+            "name": {"$match":"*manifest.json"},
+            "repo": {"$match":"*-docker-local"},
+            "@test": {"$eq": "passed"},
+            "@color": {"$eq": "green"}
+          }
+          }
+        }
+    ]
+  }

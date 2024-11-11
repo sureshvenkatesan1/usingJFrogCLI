@@ -1,0 +1,12 @@
+{
+    "files": [
+      {
+        "aql": {
+          "items.find": {
+            "name": {"$match":"*manifest.json"},
+            "repo": {"$match":"*-docker-local"},
+            "@sha256": {"$eq": "6aed41d43187f94e2bcab5ed0b3f1d53ba20b2f2076a2e261bb11bbab8846491"}}
+          }
+        }
+    ]
+  }
