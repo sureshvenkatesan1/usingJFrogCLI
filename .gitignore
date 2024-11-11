@@ -4,7 +4,7 @@
 /artifactory/storage/storage-summary.json
 /artifactory/storage/storage-summary-161.json
 
-/Distribution/setenv.sh
+/Distribution/RBv1/setenv.sh
 /setenv.sh
 /repos/cleanup/not_working/*
 /.idea
