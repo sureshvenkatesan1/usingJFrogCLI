@@ -28,7 +28,7 @@ curl -k -u admin -L -o examplemaven.zip -C 14328632 "https://my.artifactory.com/
 ```
 
 #### Workaround Script
-To bypass this connection reset issue, we created a script to download the file in smaller parts and then combine them. This approach avoids downloading the entire file in one go, reducing the likelihood of a disconnection from the F5 server.
+To bypass this connection reset issue, the script [download_a_big_zip_in_parts.sh](download_a_big_zip_in_parts.sh) downloads the zip file in smaller parts and then combines them. This approach avoids downloading the entire file in one go, reducing the likelihood of a disconnection from the F5 server.
 
 #### Workaround Script Explanation
 
