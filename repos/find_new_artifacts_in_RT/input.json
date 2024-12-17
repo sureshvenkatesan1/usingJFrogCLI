@@ -1,0 +1,80 @@
+{
+    "results" : [ {
+      "repo" : "example-repo-local",
+      "path" : "fedrepomgr/1.1.2",
+      "name" : "fedrepomgr_src.tar.gz",
+      "type" : "file",
+      "size" : 67109,
+      "created" : "2024-05-28T17:47:02.512Z",
+      "created_by" : "sureshv@jfrog.com",
+      "modified" : "2024-05-28T17:47:02.500Z",
+      "modified_by" : "sureshv@jfrog.com",
+      "updated" : "2024-05-28T17:47:02.514Z"
+    },{
+      "repo" : "example-repo-local",
+      "path" : "jfrog-nexus-migrator/0.9.2",
+      "name" : "jfrog-nexus-migrator",
+      "type" : "file",
+      "size" : 27322134,
+      "created" : "2024-05-28T17:47:16.370Z",
+      "created_by" : "sureshv@jfrog.com",
+      "modified" : "2024-05-28T17:47:16.357Z",
+      "modified_by" : "sureshv@jfrog.com",
+      "updated" : "2024-05-28T17:47:16.372Z"
+    },
+    {
+      "repo" : "example-repo-local",
+      "path" : ".",
+      "name" : "test1",
+      "type" : "file",
+      "size" : 11792,
+      "created" : "2024-05-31T23:33:42.180Z",
+      "created_by" : "sureshv@jfrog.com",
+      "modified" : "2024-05-31T23:33:42.174Z",
+      "modified_by" : "sureshv@jfrog.com",
+      "updated" : "2024-05-31T23:33:42.182Z"
+    } ,
+    {
+      "repo" : "example-repo-local",
+      "path" : ".npm",
+      "name" : "test2",
+      "type" : "file",
+      "size" : 11792,
+      "created" : "2024-05-31T23:33:42.180Z",
+      "created_by" : "sureshv@jfrog.com",
+      "modified" : "2024-05-31T23:33:42.174Z",
+      "modified_by" : "sureshv@jfrog.com",
+      "updated" : "2024-05-31T23:33:42.182Z"
+    }
+    ,
+    {
+      "repo" : "example-repo-local",
+      "path" : "fedrepomgr/_uploads",
+      "name" : "test3",
+      "type" : "file",
+      "size" : 11792,
+      "created" : "2024-05-31T23:33:42.180Z",
+      "created_by" : "sureshv@jfrog.com",
+      "modified" : "2024-05-31T23:33:42.174Z",
+      "modified_by" : "sureshv@jfrog.com",
+      "updated" : "2024-05-31T23:33:42.182Z"
+    },
+    {
+      "repo" : "example-repo-local",
+      "path" : "fedrepomgr/_uploads/123",
+      "name" : "test4",
+      "type" : "file",
+      "size" : 11792,
+      "created" : "2024-05-31T23:33:42.180Z",
+      "created_by" : "sureshv@jfrog.com",
+      "modified" : "2024-05-31T23:33:42.174Z",
+      "modified_by" : "sureshv@jfrog.com",
+      "updated" : "2024-05-31T23:33:42.182Z"
+    }],
+    "range" : {
+      "start_pos" : 0,
+      "end_pos" : 19,
+      "total" : 19,
+      "limit" : 500000
+    }
+    }

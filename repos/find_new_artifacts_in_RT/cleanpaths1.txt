@@ -1,0 +1,14 @@
+******************************
+Files present in the source repository and are missing in the target repository:
+******************************
+fedrepomgr/1.1.2/fedrepomgr_src.tar.gz
+jfrog-nexus-migrator/0.9.2/jfrog-nexus-migrator
+test1
+******************************
+        FILE STATS
+******************************
+
+Here is the count of files sorted according to the file extension that are present in the source repository and are missing in the target repository:
+Total Unique URIs in source: 27
+Total Size: 0
+: 27
