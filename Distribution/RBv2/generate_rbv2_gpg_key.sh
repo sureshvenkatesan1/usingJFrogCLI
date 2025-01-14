@@ -1,13 +1,15 @@
 #!/bin/bash
 
 # Set default values for GPG key details (can be overridden by parameters)
-ALIAS_NAME=${1:-"jfrog_distribution_key"}
-COMMENT=${2:-"jfrog_distribution_key"}
-EMAIL=${3:-"jfrog_distribution_key@yourdomain.com"}
-KEY_LENGTH=${4:-2048}
-EXPIRE_DATE=${5:-0}
-GPG_HOMEDIR=${6:-"./gpg"}
-JSON_FILE_PATH=${7:-"./thekey.json"}
+KEYPAIR_NAME=${1:-"jfrog_rbv2_key1"}
+ALIAS_NAME=${2:-"jfrog_distribution_key"}
+COMMENT=${3:-"jfrog_distribution_key"}
+EMAIL=${4:-"jfrog_distribution_key@yourdomain.com"}
+KEY_LENGTH=${5:-2048}
+EXPIRE_DATE=${6:-0}
+GPG_HOMEDIR=${7:-"./gpg"}
+JSON_FILE_PATH=${8:-"./thekey.json"}
+
 
 # Create GPG homedir if it doesn't exist
 mkdir -p "$GPG_HOMEDIR"
@@ -176,19 +178,29 @@ fi
 PRIV_KEY=$(echo "$PRIV_KEY" | awk '{printf "%s\\n", $0}')
 PUB_KEY=$(echo "$PUB_KEY" | awk '{printf "%s\\n", $0}')
 
-// https://jfrog.com/help/r/jfrog-rest-apis/upload-gpg-signing-key-for-distribution RBv1
 # Generate the JSON request body and save it to the specified JSON file
-cat >"$JSON_FILE_PATH" <<EOF
+# https://jfrog.com/help/r/jfrog-rest-apis/create-key-pair
+if [ -n "$PASSPHRASE" ]; then
+  cat >"$JSON_FILE_PATH" <<EOF
 {
-  "key": {
-    "alias": "${ALIAS_NAME}",
-    "public_key": "${PUB_KEY}",
-    "private_key": "${PRIV_KEY}"
-  },
-  "propagate_to_edge_nodes": true,
-  "fail_on_propagation_failure": false,
-  "set_as_default": true
+  "pairName": "${KEYPAIR_NAME}",
+  "pairType": "GPG",
+  "alias": "${ALIAS_NAME}",
+  "privateKey": "${PRIV_KEY}",
+  "publicKey": "${PUB_KEY}",
+  "passphrase": "${PASSPHRASE}"
 }
 EOF
+else
+  cat >"$JSON_FILE_PATH" <<EOF
+{
+  "pairName": "${KEYPAIR_NAME}",
+  "pairType": "GPG",
+  "alias": "${ALIAS_NAME}",
+  "privateKey": "${PRIV_KEY}",
+  "publicKey": "${PUB_KEY}"
+}
+EOF
+fi
 
 echo "GPG keys generated and saved to ${JSON_FILE_PATH} successfully."

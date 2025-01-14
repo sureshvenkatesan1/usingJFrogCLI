@@ -1,5 +1,5 @@
 
-# GPG Key Generation Script
+# RBV1 GPG Key Generation Script
 [generate_gpg_key.sh](generate_gpg_key.sh) script automates the process of generating a GPG key pair (public and private keys) and creates a JSON file with the keys for integration with JFrog Distribution. It also provides options to manage existing keys associated with an email address.
 
 ## Features
@@ -34,7 +34,7 @@ You can run the script with or without parameters. Below are examples of how to 
 #### Command Syntax
 
 ```bash
-./generate_gpg_key.sh [REAL_NAME] [COMMENT] [EMAIL] [KEY_LENGTH] [EXPIRE_DATE] [GPG_HOMEDIR] [JSON_FILE_PATH]
+./generate_gpg_key.sh [ALIAS_NAME] [COMMENT] [EMAIL] [KEY_LENGTH] [EXPIRE_DATE] [GPG_HOMEDIR] [JSON_FILE_PATH]
 ```
 
 ### 3. Parameters
@@ -43,7 +43,7 @@ The script accepts the following parameters:
 
 | Parameter      | Description                                                                                       | Default Value                         |
 | -------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| `REAL_NAME`    | The name associated with the GPG key.                                                              | `jfrog_distribution_key`              |
+| `ALIAS_NAME`    | The name associated with the GPG key.                                                              | `jfrog_distribution_key`              |
 | `COMMENT`      | A comment to be added to the key.                                                                  | `jfrog_distribution_key`              |
 | `EMAIL`        | The email associated with the GPG key.                                                             | `jfrog_distribution_key@yourdomain.com` |
 | `KEY_LENGTH`   | Length of the RSA key. Recommended value: 2048 or 4096.                                             | `2048`                                |

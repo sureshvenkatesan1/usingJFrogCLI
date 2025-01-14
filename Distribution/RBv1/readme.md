@@ -1,7 +1,7 @@
 ## [The Distribution RBv1 Flow](https://jfrog.com/help/r/jfrog-distribution-documentation/the-distribution-flow) 
 
 The general flow of creating a release bundle (RBv1)  is as follows:
-- [Create a circle of trust](https://jfrog.com/help/r/jfrog-platform-administration-documentation/how-to-establish-a-circle-of-trust) between your source and edge nodes as mentioned in [JFrog Artifactory Edge](https://jfrog.com/help/r/get-started-with-the-jfrog-platform/jfrog-artifactory-edge)  just in  case you want to do Access Federation as well to the Edge. If you do not plan to do Access Federation to Edge then just Register  the Edge to the JPD using [Binding Tokens](https://jfrog.com/help/r/jfrog-platform-administration-documentation/binding-tokens) .  
+- [Create a circle of trust](https://jfrog.com/help/r/jfrog-platform-administration-documentation/how-to-establish-a-circle-of-trust) between your source and edge nodes as mentioned in [JFrog Artifactory Edge](https://jfrog.com/help/r/get-started-with-the-jfrog-platform/jfrog-artifactory-edge)  just in  case you want to do Access Federation as well to the Edge. If you do not plan to do Access Federation to Edge then just Register  the Edge to the Mothership JPD using [Binding Tokens](https://jfrog.com/help/r/jfrog-platform-administration-documentation/binding-tokens) generated from the Edge.  
 
 - [Add JPD on Platform Deployment](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-platform-deployments)
 - [Generate GPG Keys](https://jfrog.com/help/r/jfrog-distribution-documentation/generate-gpg-keys) ( also see [GPG Signing](https://jfrog.com/help/r/jfrog-distribution-documentation/gpg-signing) )
