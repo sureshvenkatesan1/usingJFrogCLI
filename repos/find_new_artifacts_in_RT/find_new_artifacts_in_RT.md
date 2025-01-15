@@ -1,5 +1,6 @@
 You can search using  JFrog CLI for new artifacts in Artifactory since you last checked using:
-- a [FileSpec](https://www.jfrog.com/confluence/display/JFROG/Using+File+Specs) for [Searching Files](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-SearchingFiles)
+- a [FileSpec](https://www.jfrog.com/confluence/display/JFROG/Using+File+Specs) .
+See  [Using File Specs](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/using-file-specs) with JFrog CLI
 
 Example: `jf rt s --spec <xyz.spec>`.
 
