@@ -28,7 +28,7 @@
 1. `REAL_NAME` - Name/alias for the key (default: "jfrog_distribution_key")
 2. `COMMENT` - Comment for the key (default: "jfrog_distribution_key")
 3. `EMAIL` - Email address for the key (default: "jfrog_distribution_key@yourdomain.com")
-4. `KEY_LENGTH` - RSA key length in bits (default: 2048)
+4. `KEY_LENGTH` - RSA key length in bits (default: 4096)
 5. `EXPIRE_DATE` - Key expiration in days, 0 for no expiration (default: 0)
 6. `GPG_HOMEDIR` - Directory for GPG files (default: "./gpg")
 7. `JSON_FILE_PATH` - Output JSON file path (default: "./thekey.json")
@@ -54,7 +54,7 @@ bash Distribution/RBv2/generate_rbv2_gpg_key.sh \
     "jfrog_distribution_rbv2_key1" \
     "jfrog_distribution_rbv2_key1" \
     "jfrog_distribution_rbv2_key1@jfrog.com" \
-    2048 \
+    4096 \
     0 \
     /tmp/gpg \
     /tmp/test/thekey1.json
@@ -62,15 +62,16 @@ bash Distribution/RBv2/generate_rbv2_gpg_key.sh \
 
 ## Output
 
-The script generates a JSON file containing RSA 2048-bit key pair:
+The script generates a JSON file containing GPG 4096-bit key pair:
 - Key pair name
-- Key type (RSA)
+- Key type (GPG)
 - Alias
 - Private key (ASCII armored, with newlines replaced by \n)
 - Public key (ASCII armored, with newlines replaced by \n)
-- Passphrase (if provided)
+- Passphrase 
 - Store GPG files in `/tmp/gpg`
 - Save the key pair JSON in `/tmp/test/thekey1.json`
+- Save the private key in ./gpg_private_key.asc and public key in ./gpg_public_key.asc files for convenience
 - Set no expiration date (0)
 
 
@@ -78,11 +79,11 @@ Example JSON output format:
 ```json
 {
   "pairName": "jfrog_rbv2_key1",
-  "pairType": "RSA",
+  "pairType": "GPG",
   "alias": "jfrog_distribution_rbv2_key1",
-  "privateKey": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n...\n-----END PGP PRIVATE KEY BLOCK-----\n",
-  "publicKey": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----\n",
-  "passphrase": "optional_passphrase"
+  "privateKey": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n...\n-----END PGP PRIVATE KEY BLOCK-----",
+  "publicKey": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n...\n-----END PGP PUBLIC KEY BLOCK-----",
+  "passphrase": "optional_passphrase or empty string"
 }
 ```
 

@@ -5,11 +5,13 @@ KEYPAIR_NAME=${1:-"jfrog_rbv2_key1"}
 ALIAS_NAME=${2:-"jfrog_distribution_key"}
 COMMENT=${3:-"jfrog_distribution_key"}
 EMAIL=${4:-"jfrog_distribution_key@yourdomain.com"}
-KEY_LENGTH=${5:-2048}
+KEY_LENGTH=${5:-4096}
 EXPIRE_DATE=${6:-0}
 GPG_HOMEDIR=${7:-"./gpg"}
 JSON_FILE_PATH=${8:-"./thekey.json"}
-
+# Define output filenames
+PUBLIC_KEY_FILE="./gpg_public_key.asc"
+PRIVATE_KEY_FILE="./gpg_private_key.asc"
 
 # Create GPG homedir if it doesn't exist
 mkdir -p "$GPG_HOMEDIR"
@@ -174,9 +176,14 @@ if [ -z "$PUB_KEY" ]; then
   exit 1
 fi
 
+
+# Save the keys to files (remove trailing newlines)
+printf "%s" "$PRIV_KEY" > "$PRIVATE_KEY_FILE"
+printf "%s" "$PUB_KEY" > "$PUBLIC_KEY_FILE"
+
 # Process keys to replace newlines with \n
-PRIV_KEY=$(echo "$PRIV_KEY" | awk '{printf "%s\\n", $0}')
-PUB_KEY=$(echo "$PUB_KEY" | awk '{printf "%s\\n", $0}')
+PRIV_KEY=$(printf "%s" "$PRIV_KEY" | awk '{printf "%s\\n", $0}'| sed 's/\\n$//')
+PUB_KEY=$(printf "%s" "$PUB_KEY" | awk '{printf "%s\\n", $0}'| sed 's/\\n$//')
 
 # Generate the JSON request body and save it to the specified JSON file
 # https://jfrog.com/help/r/jfrog-rest-apis/create-key-pair
@@ -198,7 +205,8 @@ else
   "pairType": "GPG",
   "alias": "${ALIAS_NAME}",
   "privateKey": "${PRIV_KEY}",
-  "publicKey": "${PUB_KEY}"
+  "publicKey": "${PUB_KEY}",
+  "passphrase": ""
 }
 EOF
 fi
