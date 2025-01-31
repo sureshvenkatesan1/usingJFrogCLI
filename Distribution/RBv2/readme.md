@@ -34,6 +34,9 @@ curl -i -XPOST "http://<ARTIFACTORY_URL>/lifecycle/api/v2/distribution/key/propa
 ```
 
 ### 3. Create and Sign Release Bundle v2
+Use the [Release Bundle V2 APIs](https://jfrog.com/help/r/jfrog-rest-apis/release-bundle-v2-apis) like
+[Create Release Bundle v2 Version](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v2-version)
+
 [Create and sign release bundle v2](https://jfrog-int.atlassian.net/wiki/spaces/CT/pages/640025058/How+to+create+release+bundle+v1+v2+and+to+download+it+with+connect#Upload-and-propagate-GPG-signing-keys-for-distribution-v2)
 
 #### Using AQL Source Type:
@@ -98,6 +101,12 @@ curl -i -k -X POST "http://<ARTIFACTORY_URL>/lifecycle/api/v2/release_bundle?pro
     }'
 
 ```
+Note: You can find the sha256 checksum of an artifact using the 
+ - [Get File Info](https://jfrog.com/help/r/jfrog-rest-apis/get-file-info) or
+ - [File List](https://jfrog.com/help/r/jfrog-rest-apis/file-list) API
+ 
+ Also see usage of the `File List` API in [list_files_folder_in_repo_with_aql_or_storage_api.md](../../artifactory/storage/list_files_folder_in_repo_with_aql_or_storage_api.md)
+ 
 
 ### 3. Check Release Bundle Status
 
@@ -109,6 +118,7 @@ curl -i -k -X GET "http://<ARTIFACTORY_URL>/lifecycle/api/v2/release_bundle/stat
 ### 4. Distribute Release Bundle
 
 #### To All Edges (Using JFrog CLI):
+See [Distributing a Release Bundle](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-distribution#distributing-a-release-bundle)
 ```bash
 jf rbd Gradle-Dist 1
 ```
@@ -137,6 +147,41 @@ curl -i -k -X POST "http://<ARTIFACTORY_URL>/lifecycle/api/v2/distribution/distr
             ]
         }
     }'
+```
+The example in [Distribute Release Bundle Version v2](https://jfrog.com/help/r/jfrog-rest-apis/distribute-release-bundle-version-v2) API show how to distribute to all edges via the wildcard 
+```
+        "distribution_rules": [
+            {
+                "site_name": "*"
+            }
+        ]
+        or a pattern match:
+                "distribution_rules": [
+            {
+                "site_name": "edge*"
+            }
+        ]
+
+```
+Example of payload to distribute to  3 specfic edges and autocreate the repos on the edges :
+```
+{
+  "distribution_rules": [
+    {
+      "site_name": "soleng"
+    },
+    {
+      "site_name": "psazeuwedge"
+    },
+    {
+      "site_name": "psedgeoz"
+    }
+  ],
+  "auto_create_missing_repositories": true,
+  "modifications": {
+    "mappings": []
+  }
+} 
 ```
 
 ### 5. Delete Operations
