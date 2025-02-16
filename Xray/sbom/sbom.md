@@ -1,0 +1,1 @@
+Please review wiki [Xray Scan Build / Build Scan and SBOM](https://jfrog-int.atlassian.net/wiki/spaces/PS/pages/236683333/Xray+Scan+Build+Build+Scan+and+SBOM)

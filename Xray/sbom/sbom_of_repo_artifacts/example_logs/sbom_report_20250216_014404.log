@@ -1,0 +1,224 @@
+2025-02-16 01:44:04,461 - INFO - Processing repository: cg-lab-docker-local
+2025-02-16 01:44:04,462 - INFO - Processing repository: user4-test-generic-target-local
+2025-02-16 01:44:04,479 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:04,480 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:04,850 - DEBUG - https://psazuse.jfrog.io:443 "GET /artifactory/api/repositories/user4-test-generic-target-local HTTP/1.1" 200 None
+2025-02-16 01:44:04,851 - DEBUG - Repository user4-test-generic-target-local - Type: generic, Class: local
+2025-02-16 01:44:04,853 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:04,860 - DEBUG - https://psazuse.jfrog.io:443 "GET /artifactory/api/repositories/cg-lab-docker-local HTTP/1.1" 200 None
+2025-02-16 01:44:04,860 - DEBUG - Repository cg-lab-docker-local - Type: docker, Class: local
+2025-02-16 01:44:04,862 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:05,297 - DEBUG - https://psazuse.jfrog.io:443 "GET /xray/api/v1/artifacts?repo=user4-test-generic-target-local HTTP/1.1" 200 None
+2025-02-16 01:44:05,303 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:05,304 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:05,560 - DEBUG - https://psazuse.jfrog.io:443 "GET /xray/api/v1/artifacts?repo=cg-lab-docker-local HTTP/1.1" 200 None
+2025-02-16 01:44:05,642 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:05,644 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:05,645 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:05,879 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:05,889 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:05,895 - INFO - Processing repository: cg-lab-libs-snapshot-local
+2025-02-16 01:44:05,897 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:06,248 - DEBUG - https://psazuse.jfrog.io:443 "GET /artifactory/api/repositories/cg-lab-libs-snapshot-local HTTP/1.1" 200 None
+2025-02-16 01:44:06,248 - DEBUG - Repository cg-lab-libs-snapshot-local - Type: maven, Class: local
+2025-02-16 01:44:06,250 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:06,445 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:06,735 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:06,997 - DEBUG - https://psazuse.jfrog.io:443 "GET /xray/api/v1/artifacts?repo=cg-lab-libs-snapshot-local HTTP/1.1" 200 None
+2025-02-16 01:44:07,082 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:07,082 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:07,084 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:07,329 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:07,331 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:07,457 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 404 48
+2025-02-16 01:44:07,458 - ERROR - Error getting SBOM details for my-jfrog-app-1.0-20241219.231255-4.jar: 404 Client Error: Not Found for url: https://psazuse.jfrog.io/xray/api/v2/component/exportDetails
+2025-02-16 01:44:07,458 - DEBUG - Original package_id: generic://sha256:b0476a3095353baa35833b57044b8c0daf151cd6e64c39e2c6d04b15925a05a6/my-jfrog-app-1.0-20241219.231255-4.jar
+2025-02-16 01:44:07,458 - DEBUG - Original version: 
+2025-02-16 01:44:07,458 - DEBUG - Curl command for troubleshooting:
+2025-02-16 01:44:07,458 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "my-jfrog-app-1.0-20241219.231255-4.jar",
+  "path": "cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.231255-4.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:44:07,461 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:07,543 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 2
+2025-02-16 01:44:07,543 - DEBUG - Zero components found for com.chaitanyag:my-jfrog-app:1.0-20241219.230857-3
+2025-02-16 01:44:07,544 - DEBUG - Original package_id: gav://com.chaitanyag:my-jfrog-app
+2025-02-16 01:44:07,544 - DEBUG - Original version: 1.0-20241219.230857-3
+2025-02-16 01:44:07,544 - DEBUG - Curl command for troubleshooting:
+2025-02-16 01:44:07,544 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "com.chaitanyag:my-jfrog-app:1.0-20241219.230857-3",
+  "path": "cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.230857-3.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:44:07,546 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:07,706 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 2
+2025-02-16 01:44:07,707 - DEBUG - Zero components found for com.chaitanyag:my-jfrog-app:1.0-20241219.231255-4
+2025-02-16 01:44:07,707 - DEBUG - Original package_id: gav://com.chaitanyag:my-jfrog-app
+2025-02-16 01:44:07,713 - DEBUG - Original version: 1.0-20241219.231255-4
+2025-02-16 01:44:07,715 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:07,716 - DEBUG - Curl command for troubleshooting:
+2025-02-16 01:44:07,716 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:07,716 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "com.chaitanyag:my-jfrog-app:1.0-20241219.231255-4",
+  "path": "cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.231255-4.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:44:07,718 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:08,097 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 2
+2025-02-16 01:44:08,098 - DEBUG - Zero components found for com.chaitanyag:my-jfrog-app:1.0-20241219.232907-5
+2025-02-16 01:44:08,098 - DEBUG - Original package_id: gav://com.chaitanyag:my-jfrog-app
+2025-02-16 01:44:08,098 - DEBUG - Original version: 1.0-20241219.232907-5
+2025-02-16 01:44:08,098 - DEBUG - Curl command for troubleshooting:
+2025-02-16 01:44:08,098 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "com.chaitanyag:my-jfrog-app:1.0-20241219.232907-5",
+  "path": "cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.232907-5.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:44:08,100 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:08,240 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 2
+2025-02-16 01:44:08,241 - DEBUG - Zero components found for com.chaitanyag:my-jfrog-app:1.0-SNAPSHOT
+2025-02-16 01:44:08,241 - DEBUG - Original package_id: gav://com.chaitanyag:my-jfrog-app
+2025-02-16 01:44:08,241 - DEBUG - Original version: 1.0-SNAPSHOT
+2025-02-16 01:44:08,241 - DEBUG - Curl command for troubleshooting:
+2025-02-16 01:44:08,241 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "com.chaitanyag:my-jfrog-app:1.0-SNAPSHOT",
+  "path": "cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.233031-6.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:44:08,243 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:08,597 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:08,629 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:08,630 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:08,833 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:08,838 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:08,989 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:09,182 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:09,343 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:09,540 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:09,545 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:09,557 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:09,860 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:09,938 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:10,162 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:10,501 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:10,529 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:10,595 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:10,654 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:10,733 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:10,783 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:10,806 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:10,935 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:11,230 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:11,532 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:11,540 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:11,598 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:11,755 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:11,793 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:11,884 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:12,353 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:12,400 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:12,500 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:12,638 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:12,679 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:12,757 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:12,782 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:12,984 - INFO - Processing repository: alpha-gems-dev-local
+2025-02-16 01:44:12,986 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:13,382 - DEBUG - https://psazuse.jfrog.io:443 "GET /artifactory/api/repositories/alpha-gems-dev-local HTTP/1.1" 200 None
+2025-02-16 01:44:13,383 - DEBUG - Repository alpha-gems-dev-local - Type: gems, Class: local
+2025-02-16 01:44:13,385 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:13,579 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:13,800 - DEBUG - https://psazuse.jfrog.io:443 "GET /xray/api/v1/artifacts?repo=alpha-gems-dev-local HTTP/1.1" 200 1077
+2025-02-16 01:44:13,803 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:44:14,056 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:44:14,161 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 404 48
+2025-02-16 01:44:14,162 - ERROR - Error getting SBOM details for rubygems-update:3.0.6: 404 Client Error: Not Found for url: https://psazuse.jfrog.io/xray/api/v2/component/exportDetails
+2025-02-16 01:44:14,162 - DEBUG - Original package_id: rubygems://rubygems-update
+2025-02-16 01:44:14,162 - DEBUG - Original version: 3.0.6
+2025-02-16 01:44:14,162 - DEBUG - Curl command for troubleshooting:
+2025-02-16 01:44:14,162 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "gems",
+  "component_name": "rubygems-update:3.0.6",
+  "path": "alpha-gems-dev-local/gems/rubygems-update-3.0.6.gem",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:44:14,363 - INFO - HTML report generated: sbom_analysis_report_20250216_014404.html
+2025-02-16 01:44:14,363 - INFO - Log file generated: sbom_report_20250216_014404.log

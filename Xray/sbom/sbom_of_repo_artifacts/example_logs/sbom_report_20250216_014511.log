@@ -1,0 +1,799 @@
+2025-02-16 01:45:11,197 - INFO - Processing repository: cg-lab-docker-local
+2025-02-16 01:45:11,197 - INFO - Processing repository: user4-test-generic-target-local
+2025-02-16 01:45:11,198 - DEBUG - Curl command for API request:
+2025-02-16 01:45:11,198 - DEBUG - Curl command for API request:
+2025-02-16 01:45:11,198 - DEBUG - curl -XGET "https://psazuse.jfrog.io/artifactory/api/repositories/cg-lab-docker-local" \
+  -H "Authorization: Bearer $MYTOKEN"
+2025-02-16 01:45:11,198 - DEBUG - curl -XGET "https://psazuse.jfrog.io/artifactory/api/repositories/user4-test-generic-target-local" \
+  -H "Authorization: Bearer $MYTOKEN"
+2025-02-16 01:45:11,216 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:11,217 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:11,583 - DEBUG - https://psazuse.jfrog.io:443 "GET /artifactory/api/repositories/cg-lab-docker-local HTTP/1.1" 200 None
+2025-02-16 01:45:11,583 - DEBUG - https://psazuse.jfrog.io:443 "GET /artifactory/api/repositories/user4-test-generic-target-local HTTP/1.1" 200 None
+2025-02-16 01:45:11,584 - DEBUG - Repository cg-lab-docker-local - Type: docker, Class: local
+2025-02-16 01:45:11,584 - DEBUG - Curl command for API request:
+2025-02-16 01:45:11,585 - DEBUG - curl -XGET "https://psazuse.jfrog.io/xray/api/v1/artifacts?repo=cg-lab-docker-local" \
+  -H "Authorization: Bearer $MYTOKEN"
+2025-02-16 01:45:11,585 - DEBUG - Repository user4-test-generic-target-local - Type: generic, Class: local
+2025-02-16 01:45:11,586 - DEBUG - Curl command for API request:
+2025-02-16 01:45:11,587 - DEBUG - curl -XGET "https://psazuse.jfrog.io/xray/api/v1/artifacts?repo=user4-test-generic-target-local" \
+  -H "Authorization: Bearer $MYTOKEN"
+2025-02-16 01:45:11,587 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:11,589 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:11,999 - DEBUG - https://psazuse.jfrog.io:443 "GET /xray/api/v1/artifacts?repo=user4-test-generic-target-local HTTP/1.1" 200 None
+2025-02-16 01:45:12,000 - DEBUG - Curl command for API request:
+2025-02-16 01:45:12,000 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "generic",
+  "component_name": "gitlab-7.4.1.tgz",
+  "path": "user4-test-generic-target-local/gitlab-7.4.1.tgz",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:12,001 - DEBUG - Curl command for API request:
+2025-02-16 01:45:12,002 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "generic",
+  "component_name": "gitlab-8.0.3.tgz",
+  "path": "user4-test-generic-target-local/gitlab-8.0.3.tgz",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:12,003 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:12,005 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:12,459 - DEBUG - https://psazuse.jfrog.io:443 "GET /xray/api/v1/artifacts?repo=cg-lab-docker-local HTTP/1.1" 200 None
+2025-02-16 01:45:12,488 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:12,534 - DEBUG - Curl command for API request:
+2025-02-16 01:45:12,534 - DEBUG - Curl command for API request:
+2025-02-16 01:45:12,535 - DEBUG - Curl command for API request:
+2025-02-16 01:45:12,535 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2024-12-31_12-13-14",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2024-12-31_12-13-14/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:12,535 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-02_10-21-17",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-02_10-21-17/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:12,535 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-03_11-04-19",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-04-19/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:12,537 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:12,539 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:12,539 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:12,581 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:12,585 - INFO - Processing repository: cg-lab-libs-snapshot-local
+2025-02-16 01:45:12,586 - DEBUG - Curl command for API request:
+2025-02-16 01:45:12,586 - DEBUG - curl -XGET "https://psazuse.jfrog.io/artifactory/api/repositories/cg-lab-libs-snapshot-local" \
+  -H "Authorization: Bearer $MYTOKEN"
+2025-02-16 01:45:12,587 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:12,930 - DEBUG - https://psazuse.jfrog.io:443 "GET /artifactory/api/repositories/cg-lab-libs-snapshot-local HTTP/1.1" 200 None
+2025-02-16 01:45:12,931 - DEBUG - Repository cg-lab-libs-snapshot-local - Type: maven, Class: local
+2025-02-16 01:45:12,931 - DEBUG - Curl command for API request:
+2025-02-16 01:45:12,931 - DEBUG - curl -XGET "https://psazuse.jfrog.io/xray/api/v1/artifacts?repo=cg-lab-libs-snapshot-local" \
+  -H "Authorization: Bearer $MYTOKEN"
+2025-02-16 01:45:12,932 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:13,332 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:13,581 - DEBUG - https://psazuse.jfrog.io:443 "GET /xray/api/v1/artifacts?repo=cg-lab-libs-snapshot-local HTTP/1.1" 200 None
+2025-02-16 01:45:13,635 - DEBUG - Curl command for API request:
+2025-02-16 01:45:13,635 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-03_11-23-09",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-23-09/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:13,637 - DEBUG - Curl command for API request:
+2025-02-16 01:45:13,637 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "com.chaitanyag:my-jfrog-app:1.0-20241219.230857-3",
+  "path": "cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.230857-3.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:13,638 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:13,638 - DEBUG - Curl command for API request:
+2025-02-16 01:45:13,638 - DEBUG - Curl command for API request:
+2025-02-16 01:45:13,638 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "my-jfrog-app-1.0-20241219.231255-4.jar",
+  "path": "cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.231255-4.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:13,640 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "com.chaitanyag:my-jfrog-app:1.0-20241219.231255-4",
+  "path": "cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.231255-4.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:13,640 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:13,643 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:13,643 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:13,996 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 404 48
+2025-02-16 01:45:13,996 - ERROR - Error getting SBOM details for my-jfrog-app-1.0-20241219.231255-4.jar: 404 Client Error: Not Found for url: https://psazuse.jfrog.io/xray/api/v2/component/exportDetails
+2025-02-16 01:45:13,996 - DEBUG - Original package_id: generic://sha256:b0476a3095353baa35833b57044b8c0daf151cd6e64c39e2c6d04b15925a05a6/my-jfrog-app-1.0-20241219.231255-4.jar
+2025-02-16 01:45:13,996 - DEBUG - Original version: 
+2025-02-16 01:45:13,996 - DEBUG - Curl command for troubleshooting:
+2025-02-16 01:45:13,996 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "my-jfrog-app-1.0-20241219.231255-4.jar",
+  "path": "cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.231255-4.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:13,997 - DEBUG - Curl command for API request:
+2025-02-16 01:45:13,997 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "com.chaitanyag:my-jfrog-app:1.0-20241219.232907-5",
+  "path": "cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.232907-5.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:13,999 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:14,051 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:14,082 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:14,083 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 2
+2025-02-16 01:45:14,083 - DEBUG - Zero components found for com.chaitanyag:my-jfrog-app:1.0-20241219.230857-3
+2025-02-16 01:45:14,083 - DEBUG - Original package_id: gav://com.chaitanyag:my-jfrog-app
+2025-02-16 01:45:14,083 - DEBUG - Original version: 1.0-20241219.230857-3
+2025-02-16 01:45:14,084 - DEBUG - Curl command for API request:
+2025-02-16 01:45:14,084 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "com.chaitanyag:my-jfrog-app:1.0-SNAPSHOT",
+  "path": "cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.233031-6.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:14,086 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:14,144 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 2
+2025-02-16 01:45:14,144 - DEBUG - Zero components found for com.chaitanyag:my-jfrog-app:1.0-20241219.231255-4
+2025-02-16 01:45:14,144 - DEBUG - Original package_id: gav://com.chaitanyag:my-jfrog-app
+2025-02-16 01:45:14,145 - DEBUG - Original version: 1.0-20241219.231255-4
+2025-02-16 01:45:14,145 - DEBUG - Curl command for API request:
+2025-02-16 01:45:14,145 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "org.springframework.samples:spring-petclinic:3.3.0-20241219.234039-2",
+  "path": "cg-lab-libs-snapshot-local/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/spring-petclinic-3.3.0-20241219.234039-2.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:14,147 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:14,288 - DEBUG - Curl command for API request:
+2025-02-16 01:45:14,288 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-03_11-27-12",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-27-12/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:14,290 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:14,333 - DEBUG - Curl command for API request:
+2025-02-16 01:45:14,333 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-03_11-31-34",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-31-34/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:14,334 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:14,457 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 2
+2025-02-16 01:45:14,457 - DEBUG - Zero components found for com.chaitanyag:my-jfrog-app:1.0-20241219.232907-5
+2025-02-16 01:45:14,458 - DEBUG - Original package_id: gav://com.chaitanyag:my-jfrog-app
+2025-02-16 01:45:14,458 - DEBUG - Original version: 1.0-20241219.232907-5
+2025-02-16 01:45:14,458 - DEBUG - Curl command for API request:
+2025-02-16 01:45:14,458 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "org.owasp.webgoat:webgoat:2024.2-SNAPSHOT",
+  "path": "cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241226.203441-1.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:14,460 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:14,534 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 2
+2025-02-16 01:45:14,534 - DEBUG - Zero components found for com.chaitanyag:my-jfrog-app:1.0-SNAPSHOT
+2025-02-16 01:45:14,534 - DEBUG - Original package_id: gav://com.chaitanyag:my-jfrog-app
+2025-02-16 01:45:14,535 - DEBUG - Original version: 1.0-SNAPSHOT
+2025-02-16 01:45:14,535 - DEBUG - Curl command for API request:
+2025-02-16 01:45:14,535 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "org.owasp.webgoat:webgoat:2024.2-20241226.211919-2",
+  "path": "cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241226.211919-2.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:14,537 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:14,860 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:15,005 - DEBUG - Curl command for API request:
+2025-02-16 01:45:15,005 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "org.owasp.webgoat:webgoat:2024.2-SNAPSHOT",
+  "path": "cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241226.211919-2.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:15,007 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:15,112 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:15,150 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:15,339 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:15,387 - DEBUG - Curl command for API request:
+2025-02-16 01:45:15,388 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-03_11-42-52",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-42-52/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:15,389 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:15,433 - DEBUG - Curl command for API request:
+2025-02-16 01:45:15,433 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-03_11-50-11",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-50-11/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:15,435 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:15,565 - DEBUG - Curl command for API request:
+2025-02-16 01:45:15,565 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "org.owasp.webgoat:webgoat:2024.2-SNAPSHOT",
+  "path": "cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.211451-3.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:15,567 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:15,646 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:15,731 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:15,859 - DEBUG - Curl command for API request:
+2025-02-16 01:45:15,859 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "org.owasp.webgoat:webgoat:2024.2-20241227.211451-3",
+  "path": "cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.211451-3.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:15,861 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:15,938 - DEBUG - Curl command for API request:
+2025-02-16 01:45:15,938 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-03_11-56-30",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-56-30/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:15,940 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:16,110 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:16,235 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:16,337 - DEBUG - Curl command for API request:
+2025-02-16 01:45:16,337 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "org.owasp.webgoat:webgoat:2024.2-20241227.214425-4",
+  "path": "cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.214425-4.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:16,339 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:16,534 - DEBUG - Curl command for API request:
+2025-02-16 01:45:16,535 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-03_12-00-30",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_12-00-30/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:16,537 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:16,682 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:16,894 - DEBUG - Curl command for API request:
+2025-02-16 01:45:16,894 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "org.owasp.webgoat:webgoat:2024.2-SNAPSHOT",
+  "path": "cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.214425-4.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:16,896 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:16,932 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:17,206 - DEBUG - Curl command for API request:
+2025-02-16 01:45:17,207 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-07_10-48-04",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-07_10-48-04/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:17,209 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:17,209 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:17,249 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:17,434 - DEBUG - Curl command for API request:
+2025-02-16 01:45:17,434 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "org.owasp.webgoat:webgoat:2024.2-20241227.224116-5",
+  "path": "cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.224116-5.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:17,436 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:17,452 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:17,458 - DEBUG - Curl command for API request:
+2025-02-16 01:45:17,459 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "maven",
+  "component_name": "org.owasp.webgoat:webgoat:2024.2-SNAPSHOT",
+  "path": "cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.224116-5.jar",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:17,460 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:17,531 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:17,756 - DEBUG - Curl command for API request:
+2025-02-16 01:45:17,756 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-07_10-52-33",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-07_10-52-33/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:17,758 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:18,089 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:18,112 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:18,383 - DEBUG - Curl command for API request:
+2025-02-16 01:45:18,384 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-21_16-40-18",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-21_16-40-18/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:18,386 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:18,582 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:18,803 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:18,857 - DEBUG - Curl command for API request:
+2025-02-16 01:45:18,857 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-24_11-46-25",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-24_11-46-25/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:18,858 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:19,103 - DEBUG - Curl command for API request:
+2025-02-16 01:45:19,103 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "docker",
+  "component_name": "cg-mvn-docker-webgoat:2025-01-28_12-34-59",
+  "path": "cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-28_12-34-59/manifest.json",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:19,105 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:19,140 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:19,360 - INFO - Processing repository: alpha-gems-dev-local
+2025-02-16 01:45:19,361 - DEBUG - Curl command for API request:
+2025-02-16 01:45:19,361 - DEBUG - curl -XGET "https://psazuse.jfrog.io/artifactory/api/repositories/alpha-gems-dev-local" \
+  -H "Authorization: Bearer $MYTOKEN"
+2025-02-16 01:45:19,362 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:19,681 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:19,731 - DEBUG - https://psazuse.jfrog.io:443 "GET /artifactory/api/repositories/alpha-gems-dev-local HTTP/1.1" 200 None
+2025-02-16 01:45:19,732 - DEBUG - Repository alpha-gems-dev-local - Type: gems, Class: local
+2025-02-16 01:45:19,732 - DEBUG - Curl command for API request:
+2025-02-16 01:45:19,732 - DEBUG - curl -XGET "https://psazuse.jfrog.io/xray/api/v1/artifacts?repo=alpha-gems-dev-local" \
+  -H "Authorization: Bearer $MYTOKEN"
+2025-02-16 01:45:19,734 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:19,959 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:20,181 - DEBUG - https://psazuse.jfrog.io:443 "GET /xray/api/v1/artifacts?repo=alpha-gems-dev-local HTTP/1.1" 200 1077
+2025-02-16 01:45:20,182 - DEBUG - Curl command for API request:
+2025-02-16 01:45:20,185 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "gems",
+  "component_name": "rubygems-update:3.0.6",
+  "path": "alpha-gems-dev-local/gems/rubygems-update-3.0.6.gem",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:20,187 - DEBUG - Starting new HTTPS connection (1): psazuse.jfrog.io:443
+2025-02-16 01:45:20,562 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 404 48
+2025-02-16 01:45:20,562 - ERROR - Error getting SBOM details for rubygems-update:3.0.6: 404 Client Error: Not Found for url: https://psazuse.jfrog.io/xray/api/v2/component/exportDetails
+2025-02-16 01:45:20,562 - DEBUG - Original package_id: rubygems://rubygems-update
+2025-02-16 01:45:20,562 - DEBUG - Original version: 3.0.6
+2025-02-16 01:45:20,562 - DEBUG - Curl command for troubleshooting:
+2025-02-16 01:45:20,562 - DEBUG - curl -XPOST "https://psazuse.jfrog.io/xray/api/v2/component/exportDetails" \
+  -H "Authorization: Bearer $MYTOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "package_type": "gems",
+  "component_name": "rubygems-update:3.0.6",
+  "path": "alpha-gems-dev-local/gems/rubygems-update-3.0.6.gem",
+  "violations": true,
+  "include_ignored_violations": true,
+  "license": true,
+  "security": true,
+  "exclude_unknown": true,
+  "output_format": "json_full",
+  "spdx": true,
+  "spdx_format": "json",
+  "cyclonedx": true,
+  "cyclonedx_format": "json"
+}'
+2025-02-16 01:45:20,631 - DEBUG - https://psazuse.jfrog.io:443 "POST /xray/api/v2/component/exportDetails HTTP/1.1" 200 None
+2025-02-16 01:45:20,905 - INFO - HTML report generated: sbom_analysis_report_20250216_014511.html
+2025-02-16 01:45:20,905 - INFO - Log file generated: sbom_report_20250216_014511.log

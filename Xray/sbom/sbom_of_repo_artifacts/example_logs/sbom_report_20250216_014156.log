@@ -1,0 +1,8 @@
+2025-02-16 01:41:56,008 - INFO - Processing repository: cg-lab-docker-local
+2025-02-16 01:41:56,009 - INFO - Processing repository: user4-test-generic-target-local
+2025-02-16 01:41:57,379 - INFO - Processing repository: cg-lab-libs-snapshot-local
+2025-02-16 01:41:59,007 - ERROR - Error getting SBOM details for my-jfrog-app-1.0-20241219.231255-4.jar: 404 Client Error: Not Found for url: https://psazuse.jfrog.io/xray/api/v2/component/exportDetails
+2025-02-16 01:42:03,806 - INFO - Processing repository: alpha-gems-dev-local
+2025-02-16 01:42:04,887 - ERROR - Error getting SBOM details for rubygems-update:3.0.6: 404 Client Error: Not Found for url: https://psazuse.jfrog.io/xray/api/v2/component/exportDetails
+2025-02-16 01:42:04,897 - INFO - HTML report generated: sbom_analysis_report_20250216_014156.html
+2025-02-16 01:42:04,897 - INFO - Log file generated: sbom_report_20250216_014156.log
