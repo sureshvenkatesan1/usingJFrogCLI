@@ -53,6 +53,12 @@ python sbom_sw_components_report_for_repos.py \
   - Default: 3
   - Example: `--parallel-repos 2`
 
+**Note**: I have a handy script [get_project_report_from_repos.py](https://github.com/sureshvenkatesan1/ps_jfrog_scripts/blob/master/jf-transfer-migration-helper-scripts/create-repos/create_repos_in_projects/get_project_report_from_repos.py) that can be executed as:  
+```bash
+python get_project_report_from_repos.py --repo-type all --project-key <projectkey>
+```
+This script, among other functionalities detailed in [get_project_report_from_repos.md](https://github.com/sureshvenkatesan1/ps_jfrog_scripts/blob/master/jf-transfer-migration-helper-scripts/create-repos/create_repos_in_projects/get_project_report_from_repos.md), retrieves a list of repositories assigned to the specified project, excluding "virtual" repositories. It returns only **local, remote, and federated** repositories , that can be passed in the `--parallel-repos` if you want.
+
 - `--debug-level` (optional): Level of debug information
   - Default: 0 (no debug)
   - Choices:

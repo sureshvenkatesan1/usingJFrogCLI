@@ -116,7 +116,8 @@ class SBOMReporter:
         
         if payload:
             curl_cmd += ' \\\n  -H "Content-Type: application/json"'
-            curl_cmd += f' \\\n  -d \'{json.dumps(payload, indent=2)}\''
+            # Compress payload to single line JSON
+            curl_cmd += f' \\\n  -d \'{json.dumps(payload)}\''
         
         return curl_cmd
 
@@ -133,7 +134,13 @@ class SBOMReporter:
             "include_ignored_violations": True,
             "license": True,
             "security": True,
-            "exclude_unknown": True,
+            "exclude_unknown": False,
+            "vulnerabilities": True,
+            "operational_risk": True,
+            "secrets": True,
+            "services": True,
+            "applications": True,
+            "iac": True,
             "output_format": "json_full",
             "spdx": True,
             "spdx_format": "json",
