@@ -1,6 +1,6 @@
 # SBOM Software Components Report Generator
 
-This script generates an HTML report analyzing Software Bill of Materials (SBOM) components across multiple repositories in JFrog Artifactory. It provides insights into repositories and artifacts that have fewer components than a specified threshold.
+The [sbom_sw_components_report_for_repos.py](sbom_sw_components_report_for_repos.py) script generates an HTML report analyzing Software Bill of Materials (SBOM) components across multiple repositories in JFrog Artifactory. It provides insights into repositories and artifacts that have fewer components than a specified threshold.
 
 ## Features
 
