@@ -71,6 +71,23 @@ This script, among other functionalities detailed in [get_project_report_from_re
   - Default: 2
   - Example: `--threshold 100`
 
+### Debug Levels
+
+1. Level 0 (default):
+   - Basic progress information
+   - Error messages
+
+2. Level 1:
+   - Everything from Level 0
+   - Curl commands for failed requests
+   - Curl commands for zero-component artifacts
+
+3. Level 2:
+   - Everything from Level 1
+   - Curl commands for all API requests
+   - Detailed repository information
+   - Cache repository usage information
+
 ### Example Commands
 
 1. Basic usage with defaults:
@@ -128,22 +145,10 @@ The script generates two files with matching timestamps:
    - Debug information (if enabled)
    - Curl commands (based on debug level)
 
-## Debug Levels
-
-1. Level 0 (default):
-   - Basic progress information
-   - Error messages
-
-2. Level 1:
-   - Everything from Level 0
-   - Curl commands for failed requests
-   - Curl commands for zero-component artifacts
-
-3. Level 2:
-   - Everything from Level 1
-   - Curl commands for all API requests
-   - Detailed repository information
-   - Cache repository usage information
+**Note:** See an example report in [example_report/sbom_analysis_report_20250216_014511.html](example_report/sbom_analysis_report_20250216_014511.html) and 3 log files for:
+- Debug 0: [example_logs/sbom_report_20250216_014156.log](example_logs/sbom_report_20250216_014156.log)
+- Debug 1: [example_logs/sbom_report_20250216_014404.log](example_logs/sbom_report_20250216_014404.log)
+- Debug 2: [example_logs/sbom_report_20250216_014511.log](example_logs/sbom_report_20250216_014511.log)
 
 ## Notes
 
