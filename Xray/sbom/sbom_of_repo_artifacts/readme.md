@@ -139,16 +139,21 @@ The script generates two files with matching timestamps:
    - Highlighted rows for artifacts below threshold
    - Clickable links to JFrog UI
 
+See an example report in [example_report/sbom_analysis_report_20250216_014511.html](https://sureshvenkatesan1.github.io/usingJFrogCLI/Xray/sbom/sbom_of_repo_artifacts/example_report/sbom_analysis_report_20250216_014511.html) 
+<img src="./images//low_sbom_threshold_repos.png">
+
 2. Log File: `sbom_report_YYYYMMDD_HHMMSS.log`
    - Processing progress
    - Error messages
    - Debug information (if enabled)
    - Curl commands (based on debug level)
 
-**Note:** See an example report in [example_report/sbom_analysis_report_20250216_014511.html](https://sureshvenkatesan1.github.io/usingJFrogCLI/Xray/sbom/sbom_of_repo_artifacts/example_report/sbom_analysis_report_20250216_014511.html)  and 3 log files for:
+Example log files for:
 - Debug 0: [example_logs/sbom_report_20250216_014156.log](example_logs/sbom_report_20250216_014156.log)
 - Debug 1: [example_logs/sbom_report_20250216_014404.log](example_logs/sbom_report_20250216_014404.log)
 - Debug 2: [example_logs/sbom_report_20250216_014511.log](example_logs/sbom_report_20250216_014511.log)
+
+
 
 ## Notes
 
