@@ -1,0 +1,451 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>SBOM Software Components Analysis Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                h1 { color: #2c3e50; }
+                h2 { color: #34495e; margin-top: 30px; }
+                .timestamp { color: #7f8c8d; margin-bottom: 30px; }
+                .low-components { 
+                    background-color: #fff3e0; 
+                    padding: 15px;
+                    border-radius: 5px;
+                    margin: 20px 0;
+                }
+                .low-components h3 { 
+                    color: #e65100;
+                    margin-top: 0;
+                }
+                .low-components ul { 
+                    list-style-type: none;
+                    padding-left: 0;
+                }
+                .low-components li { 
+                    margin: 5px 0;
+                }
+                table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+                th, td { border: 1px solid #bdc3c7; padding: 8px; text-align: left; }
+                th { background-color: #f2f2f2; }
+                tr:nth-child(even) { background-color: #f9f9f9; }
+                tr.low-component { background-color: #fff3e0; }
+                a { color: #3498db; text-decoration: none; }
+                a:hover { text-decoration: underline; }
+                .no-data { color: #e74c3c; font-style: italic; }
+                .package-type-summary { 
+                    background-color: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 5px;
+                    margin: 20px 0;
+                }
+                .package-type-summary h3 {
+                    color: #2c3e50;
+                    margin-top: 0;
+                }
+                .package-type-bar {
+                    display: flex;
+                    align-items: center;
+                    margin: 10px 0;
+                }
+                .bar {
+                    background-color: #34495e;
+                    height: 25px;
+                    margin-right: 10px;
+                    min-width: 30px;
+                }
+                .bar-label {
+                    font-size: 14px;
+                    color: #34495e;
+                }
+                .package-repos {
+                    display: none;
+                    margin-left: 20px;
+                    padding: 10px;
+                    background-color: #fff;
+                    border-left: 3px solid #34495e;
+                }
+                .package-repos.active {
+                    display: block;
+                }
+            </style>
+            <script>
+                function togglePackageRepos(packageType) {
+                    const reposDiv = document.getElementById('repos-' + packageType);
+                    reposDiv.classList.toggle('active');
+                }
+            </script>
+        </head>
+        <body>
+            <h1>SBOM Software Components Analysis Report</h1>
+            <div class="timestamp">Generated on: 2025-02-16 01:45:20 PST</div>
+            
+            <div class="package-type-summary">
+                <h3>Package Types with Low-Component Artifacts:</h3>
+            
+                <div class="package-type-bar">
+                    <div class="bar" style="width: 100.0%;"></div>
+                    <div class="bar-label">
+                        <a href="javascript:void(0)" onclick="togglePackageRepos('maven')">maven: 5</a>
+                    </div>
+                </div>
+                
+                <div id="repos-maven" class="package-repos">
+                    <ul>
+                <li><a href="#repo_cg-lab-libs-snapshot-local">cg-lab-libs-snapshot-local (5 artifacts)</a></li>
+                    </ul>
+                </div>
+                
+                <div class="package-type-bar">
+                    <div class="bar" style="width: 40.0%;"></div>
+                    <div class="bar-label">
+                        <a href="javascript:void(0)" onclick="togglePackageRepos('generic')">generic: 2</a>
+                    </div>
+                </div>
+                
+                <div id="repos-generic" class="package-repos">
+                    <ul>
+                <li><a href="#repo_user4-test-generic-target-local">user4-test-generic-target-local (2 artifacts)</a></li>
+                    </ul>
+                </div>
+                
+                <div class="package-type-bar">
+                    <div class="bar" style="width: 20.0%;"></div>
+                    <div class="bar-label">
+                        <a href="javascript:void(0)" onclick="togglePackageRepos('gems')">gems: 1</a>
+                    </div>
+                </div>
+                
+                <div id="repos-gems" class="package-repos">
+                    <ul>
+                <li><a href="#repo_alpha-gems-dev-local">alpha-gems-dev-local (1 artifacts)</a></li>
+                    </ul>
+                </div>
+                </div>
+            <h2 id="repo_user4-test-generic-target-local">Repository: user4-test-generic-target-local</h2>
+<table border="1" class="dataframe dataframe" id="table_user4-test-generic-target-local">
+  <thead>
+    <tr style="text-align: left;">
+      <th>path</th>
+      <th>package_type</th>
+      <th>component_name</th>
+      <th>Total "component_id" in Violations section</th>
+      <th>Total "component_id" in Licenses section</th>
+      <th>Total "component_id" across all sections</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/user4-test-generic-target-local/scan-descendants/gitlab-7.4.1.tgz?version=&package_id=generic%3A%2F%2Fsha256:52a12c0906aa9cd6169ea6b81ea39ae57de25e2348681ba7f74c3edf6d9d7fff/gitlab-7.4.1.tgz&path=user4-test-generic-target-local%2Fgitlab-7.4.1.tgz&page_type=sbom">user4-test-generic-target-local/gitlab-7.4.1.tgz</a></td>
+      <td>generic</td>
+      <td>gitlab-7.4.1.tgz</td>
+      <td>5</td>
+      <td>1</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/user4-test-generic-target-local/scan-descendants/gitlab-8.0.3.tgz?version=&package_id=generic%3A%2F%2Fsha256:8dad12bad0d2abf51bf9c26290c54883dd350e791af06003f705a33ae8edb8e0/gitlab-8.0.3.tgz&path=user4-test-generic-target-local%2Fgitlab-8.0.3.tgz&page_type=sbom">user4-test-generic-target-local/gitlab-8.0.3.tgz</a></td>
+      <td>generic</td>
+      <td>gitlab-8.0.3.tgz</td>
+      <td>5</td>
+      <td>1</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="repo_cg-lab-libs-snapshot-local">Repository: cg-lab-libs-snapshot-local</h2>
+<table border="1" class="dataframe dataframe" id="table_cg-lab-libs-snapshot-local">
+  <thead>
+    <tr style="text-align: left;">
+      <th>path</th>
+      <th>package_type</th>
+      <th>component_name</th>
+      <th>Total "component_id" in Violations section</th>
+      <th>Total "component_id" in Licenses section</th>
+      <th>Total "component_id" across all sections</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/my-jfrog-app-1.0-20241219.230857-3.jar?version=1.0-20241219.230857-3&package_id=gav%3A%2F%2Fcom.chaitanyag:my-jfrog-app&path=cg-lab-libs-snapshot-local%2Fcom%2Fchaitanyag%2Fmy-jfrog-app%2F1.0-SNAPSHOT%2Fmy-jfrog-app-1.0-20241219.230857-3.jar&page_type=sbom">cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.230857-3.jar</a></td>
+      <td>maven</td>
+      <td>com.chaitanyag:my-jfrog-app:1.0-20241219.230857-3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/my-jfrog-app-1.0-20241219.231255-4.jar?version=&package_id=generic%3A%2F%2Fsha256:b0476a3095353baa35833b57044b8c0daf151cd6e64c39e2c6d04b15925a05a6/my-jfrog-app-1.0-20241219.231255-4.jar&path=cg-lab-libs-snapshot-local%2Fcom%2Fchaitanyag%2Fmy-jfrog-app%2F1.0-SNAPSHOT%2Fmy-jfrog-app-1.0-20241219.231255-4.jar&page_type=sbom">cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.231255-4.jar</a></td>
+      <td>maven</td>
+      <td>my-jfrog-app-1.0-20241219.231255-4.jar</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/my-jfrog-app-1.0-20241219.231255-4.jar?version=1.0-20241219.231255-4&package_id=gav%3A%2F%2Fcom.chaitanyag:my-jfrog-app&path=cg-lab-libs-snapshot-local%2Fcom%2Fchaitanyag%2Fmy-jfrog-app%2F1.0-SNAPSHOT%2Fmy-jfrog-app-1.0-20241219.231255-4.jar&page_type=sbom">cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.231255-4.jar</a></td>
+      <td>maven</td>
+      <td>com.chaitanyag:my-jfrog-app:1.0-20241219.231255-4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/my-jfrog-app-1.0-20241219.232907-5.jar?version=1.0-20241219.232907-5&package_id=gav%3A%2F%2Fcom.chaitanyag:my-jfrog-app&path=cg-lab-libs-snapshot-local%2Fcom%2Fchaitanyag%2Fmy-jfrog-app%2F1.0-SNAPSHOT%2Fmy-jfrog-app-1.0-20241219.232907-5.jar&page_type=sbom">cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.232907-5.jar</a></td>
+      <td>maven</td>
+      <td>com.chaitanyag:my-jfrog-app:1.0-20241219.232907-5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/my-jfrog-app-1.0-20241219.233031-6.jar?version=1.0-SNAPSHOT&package_id=gav%3A%2F%2Fcom.chaitanyag:my-jfrog-app&path=cg-lab-libs-snapshot-local%2Fcom%2Fchaitanyag%2Fmy-jfrog-app%2F1.0-SNAPSHOT%2Fmy-jfrog-app-1.0-20241219.233031-6.jar&page_type=sbom">cg-lab-libs-snapshot-local/com/chaitanyag/my-jfrog-app/1.0-SNAPSHOT/my-jfrog-app-1.0-20241219.233031-6.jar</a></td>
+      <td>maven</td>
+      <td>com.chaitanyag:my-jfrog-app:1.0-SNAPSHOT</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/spring-petclinic-3.3.0-20241219.234039-2.jar?version=3.3.0-20241219.234039-2&package_id=gav%3A%2F%2Forg.springframework.samples:spring-petclinic&path=cg-lab-libs-snapshot-local%2Forg%2Fspringframework%2Fsamples%2Fspring-petclinic%2F3.3.0-SNAPSHOT%2Fspring-petclinic-3.3.0-20241219.234039-2.jar&page_type=sbom">cg-lab-libs-snapshot-local/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/spring-petclinic-3.3.0-20241219.234039-2.jar</a></td>
+      <td>maven</td>
+      <td>org.springframework.samples:spring-petclinic:3.3.0-20241219.234039-2</td>
+      <td>0</td>
+      <td>146</td>
+      <td>146</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/webgoat-2024.2-20241226.211919-2.jar?version=2024.2-SNAPSHOT&package_id=gav%3A%2F%2Forg.owasp.webgoat:webgoat&path=cg-lab-libs-snapshot-local%2Forg%2Fowasp%2Fwebgoat%2Fwebgoat%2F2024.2-SNAPSHOT%2Fwebgoat-2024.2-20241226.211919-2.jar&page_type=sbom">cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241226.211919-2.jar</a></td>
+      <td>maven</td>
+      <td>org.owasp.webgoat:webgoat:2024.2-SNAPSHOT</td>
+      <td>0</td>
+      <td>299</td>
+      <td>299</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/webgoat-2024.2-20241227.214425-4.jar?version=2024.2-SNAPSHOT&package_id=gav%3A%2F%2Forg.owasp.webgoat:webgoat&path=cg-lab-libs-snapshot-local%2Forg%2Fowasp%2Fwebgoat%2Fwebgoat%2F2024.2-SNAPSHOT%2Fwebgoat-2024.2-20241227.214425-4.jar&page_type=sbom">cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.214425-4.jar</a></td>
+      <td>maven</td>
+      <td>org.owasp.webgoat:webgoat:2024.2-SNAPSHOT</td>
+      <td>0</td>
+      <td>299</td>
+      <td>299</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/webgoat-2024.2-20241227.224116-5.jar?version=2024.2-SNAPSHOT&package_id=gav%3A%2F%2Forg.owasp.webgoat:webgoat&path=cg-lab-libs-snapshot-local%2Forg%2Fowasp%2Fwebgoat%2Fwebgoat%2F2024.2-SNAPSHOT%2Fwebgoat-2024.2-20241227.224116-5.jar&page_type=sbom">cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.224116-5.jar</a></td>
+      <td>maven</td>
+      <td>org.owasp.webgoat:webgoat:2024.2-SNAPSHOT</td>
+      <td>0</td>
+      <td>299</td>
+      <td>299</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/webgoat-2024.2-20241227.211451-3.jar?version=2024.2-20241227.211451-3&package_id=gav%3A%2F%2Forg.owasp.webgoat:webgoat&path=cg-lab-libs-snapshot-local%2Forg%2Fowasp%2Fwebgoat%2Fwebgoat%2F2024.2-SNAPSHOT%2Fwebgoat-2024.2-20241227.211451-3.jar&page_type=sbom">cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.211451-3.jar</a></td>
+      <td>maven</td>
+      <td>org.owasp.webgoat:webgoat:2024.2-20241227.211451-3</td>
+      <td>39</td>
+      <td>299</td>
+      <td>338</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/webgoat-2024.2-20241226.211919-2.jar?version=2024.2-20241226.211919-2&package_id=gav%3A%2F%2Forg.owasp.webgoat:webgoat&path=cg-lab-libs-snapshot-local%2Forg%2Fowasp%2Fwebgoat%2Fwebgoat%2F2024.2-SNAPSHOT%2Fwebgoat-2024.2-20241226.211919-2.jar&page_type=sbom">cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241226.211919-2.jar</a></td>
+      <td>maven</td>
+      <td>org.owasp.webgoat:webgoat:2024.2-20241226.211919-2</td>
+      <td>40</td>
+      <td>299</td>
+      <td>339</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/webgoat-2024.2-20241227.211451-3.jar?version=2024.2-SNAPSHOT&package_id=gav%3A%2F%2Forg.owasp.webgoat:webgoat&path=cg-lab-libs-snapshot-local%2Forg%2Fowasp%2Fwebgoat%2Fwebgoat%2F2024.2-SNAPSHOT%2Fwebgoat-2024.2-20241227.211451-3.jar&page_type=sbom">cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.211451-3.jar</a></td>
+      <td>maven</td>
+      <td>org.owasp.webgoat:webgoat:2024.2-SNAPSHOT</td>
+      <td>40</td>
+      <td>299</td>
+      <td>339</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/webgoat-2024.2-20241227.214425-4.jar?version=2024.2-20241227.214425-4&package_id=gav%3A%2F%2Forg.owasp.webgoat:webgoat&path=cg-lab-libs-snapshot-local%2Forg%2Fowasp%2Fwebgoat%2Fwebgoat%2F2024.2-SNAPSHOT%2Fwebgoat-2024.2-20241227.214425-4.jar&page_type=sbom">cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.214425-4.jar</a></td>
+      <td>maven</td>
+      <td>org.owasp.webgoat:webgoat:2024.2-20241227.214425-4</td>
+      <td>40</td>
+      <td>299</td>
+      <td>339</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/webgoat-2024.2-20241227.224116-5.jar?version=2024.2-20241227.224116-5&package_id=gav%3A%2F%2Forg.owasp.webgoat:webgoat&path=cg-lab-libs-snapshot-local%2Forg%2Fowasp%2Fwebgoat%2Fwebgoat%2F2024.2-SNAPSHOT%2Fwebgoat-2024.2-20241227.224116-5.jar&page_type=sbom">cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241227.224116-5.jar</a></td>
+      <td>maven</td>
+      <td>org.owasp.webgoat:webgoat:2024.2-20241227.224116-5</td>
+      <td>40</td>
+      <td>299</td>
+      <td>339</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-libs-snapshot-local/scan-descendants/webgoat-2024.2-20241226.203441-1.jar?version=2024.2-SNAPSHOT&package_id=gav%3A%2F%2Forg.owasp.webgoat:webgoat&path=cg-lab-libs-snapshot-local%2Forg%2Fowasp%2Fwebgoat%2Fwebgoat%2F2024.2-SNAPSHOT%2Fwebgoat-2024.2-20241226.203441-1.jar&page_type=sbom">cg-lab-libs-snapshot-local/org/owasp/webgoat/webgoat/2024.2-SNAPSHOT/webgoat-2024.2-20241226.203441-1.jar</a></td>
+      <td>maven</td>
+      <td>org.owasp.webgoat:webgoat:2024.2-SNAPSHOT</td>
+      <td>41</td>
+      <td>299</td>
+      <td>340</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="repo_alpha-gems-dev-local">Repository: alpha-gems-dev-local</h2>
+<table border="1" class="dataframe dataframe" id="table_alpha-gems-dev-local">
+  <thead>
+    <tr style="text-align: left;">
+      <th>path</th>
+      <th>package_type</th>
+      <th>component_name</th>
+      <th>Total "component_id" in Violations section</th>
+      <th>Total "component_id" in Licenses section</th>
+      <th>Total "component_id" across all sections</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/alpha-gems-dev-local/scan-descendants/rubygems-update-3.0.6.gem?version=3.0.6&package_id=rubygems%3A%2F%2Frubygems-update&path=alpha-gems-dev-local%2Fgems%2Frubygems-update-3.0.6.gem&page_type=sbom">alpha-gems-dev-local/gems/rubygems-update-3.0.6.gem</a></td>
+      <td>gems</td>
+      <td>rubygems-update:3.0.6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="repo_cg-lab-docker-local">Repository: cg-lab-docker-local</h2>
+<table border="1" class="dataframe dataframe" id="table_cg-lab-docker-local">
+  <thead>
+    <tr style="text-align: left;">
+      <th>path</th>
+      <th>package_type</th>
+      <th>component_name</th>
+      <th>Total "component_id" in Violations section</th>
+      <th>Total "component_id" in Licenses section</th>
+      <th>Total "component_id" across all sections</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-03_11-31-34?version=2025-01-03_11-31-34&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-03_11-31-34%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-31-34/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-03_11-31-34</td>
+      <td>0</td>
+      <td>418</td>
+      <td>418</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2024-12-31_12-13-14?version=2024-12-31_12-13-14&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2024-12-31_12-13-14%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2024-12-31_12-13-14/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2024-12-31_12-13-14</td>
+      <td>7</td>
+      <td>417</td>
+      <td>424</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-02_10-21-17?version=2025-01-02_10-21-17&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-02_10-21-17%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-02_10-21-17/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-02_10-21-17</td>
+      <td>7</td>
+      <td>417</td>
+      <td>424</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-03_11-04-19?version=2025-01-03_11-04-19&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-03_11-04-19%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-04-19/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-03_11-04-19</td>
+      <td>7</td>
+      <td>417</td>
+      <td>424</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-03_11-23-09?version=2025-01-03_11-23-09&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-03_11-23-09%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-23-09/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-03_11-23-09</td>
+      <td>7</td>
+      <td>417</td>
+      <td>424</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-03_11-27-12?version=2025-01-03_11-27-12&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-03_11-27-12%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-27-12/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-03_11-27-12</td>
+      <td>7</td>
+      <td>417</td>
+      <td>424</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-03_11-42-52?version=2025-01-03_11-42-52&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-03_11-42-52%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-42-52/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-03_11-42-52</td>
+      <td>7</td>
+      <td>418</td>
+      <td>425</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-03_11-50-11?version=2025-01-03_11-50-11&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-03_11-50-11%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-50-11/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-03_11-50-11</td>
+      <td>7</td>
+      <td>418</td>
+      <td>425</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-03_11-56-30?version=2025-01-03_11-56-30&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-03_11-56-30%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_11-56-30/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-03_11-56-30</td>
+      <td>7</td>
+      <td>418</td>
+      <td>425</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-03_12-00-30?version=2025-01-03_12-00-30&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-03_12-00-30%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-03_12-00-30/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-03_12-00-30</td>
+      <td>7</td>
+      <td>418</td>
+      <td>425</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-07_10-48-04?version=2025-01-07_10-48-04&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-07_10-48-04%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-07_10-48-04/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-07_10-48-04</td>
+      <td>7</td>
+      <td>418</td>
+      <td>425</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-07_10-52-33?version=2025-01-07_10-52-33&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-07_10-52-33%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-07_10-52-33/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-07_10-52-33</td>
+      <td>7</td>
+      <td>418</td>
+      <td>425</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-21_16-40-18?version=2025-01-21_16-40-18&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-21_16-40-18%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-21_16-40-18/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-21_16-40-18</td>
+      <td>7</td>
+      <td>418</td>
+      <td>425</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-24_11-46-25?version=2025-01-24_11-46-25&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-24_11-46-25%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-24_11-46-25/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-24_11-46-25</td>
+      <td>7</td>
+      <td>418</td>
+      <td>425</td>
+    </tr>
+    <tr>
+      <td><a href="https://psazuse.jfrog.io/ui/scans-list/repositories/cg-lab-docker-local/scan-descendants/cg-mvn-docker-webgoat%2F2025-01-28_12-34-59?version=2025-01-28_12-34-59&package_id=docker%3A%2F%2Fcg-mvn-docker-webgoat&path=cg-lab-docker-local%2Fcg-mvn-docker-webgoat%2F2025-01-28_12-34-59%2Fmanifest.json&page_type=sbom">cg-lab-docker-local/cg-mvn-docker-webgoat/2025-01-28_12-34-59/manifest.json</a></td>
+      <td>docker</td>
+      <td>cg-mvn-docker-webgoat:2025-01-28_12-34-59</td>
+      <td>7</td>
+      <td>418</td>
+      <td>425</td>
+    </tr>
+  </tbody>
+</table>
+        </body>
+        </html>
+        
