@@ -145,7 +145,7 @@ The script generates two files with matching timestamps:
    - Debug information (if enabled)
    - Curl commands (based on debug level)
 
-**Note:** See an example report in [example_report/sbom_analysis_report_20250216_014511.html](example_report/sbom_analysis_report_20250216_014511.html) and 3 log files for:
+**Note:** See an example report in [example_report/sbom_analysis_report_20250216_014511.html](https://sureshvenkatesan1.github.io/usingJFrogCLI/Xray/sbom/sbom_of_repo_artifacts/example_report/sbom_analysis_report_20250216_014511.html)  and 3 log files for:
 - Debug 0: [example_logs/sbom_report_20250216_014156.log](example_logs/sbom_report_20250216_014156.log)
 - Debug 1: [example_logs/sbom_report_20250216_014404.log](example_logs/sbom_report_20250216_014404.log)
 - Debug 2: [example_logs/sbom_report_20250216_014511.log](example_logs/sbom_report_20250216_014511.log)
