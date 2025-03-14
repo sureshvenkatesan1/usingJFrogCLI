@@ -1,6 +1,7 @@
 # Build Vulnerability Impact Path Analyzer
 
-This script analyzes the security vulnerability differences between two builds and identifies the impacted repository paths of artifacts.
+This script analyzes  security vulnerability differences between two build versions of a software build. It identifies the impacted repository paths of artifacts and maps these impacted paths to their actual repository locations.
+
 
 ## Purpose
 
@@ -87,16 +88,24 @@ https://artifactory/path/to/artifact3.jar (from build: my-build:2.0.0)
 The script interacts with the following JFrog Platform APIs:
 
 1. Build Vulnerability Diff API:
-   - Compares security issues between two builds
    - `POST /ui/api/v1/xray/ui/security_info/diff`
+   - Compares vulnerability difference  between two build versions extracting `data.all.added.issue.id`, `data.all.removed.issue.id`, and `data.all.changed.issue.id` from the response.
+   - The standard Artifactory [Builds Diff](https://jfrog.com/help/r/jfrog-rest-apis/builds-diff) API provides only the 
+    published artifacts , dependencies and components deferences between the build versions, necessitating the use of this Xray UI API.
+
 
 2. [Build Summary](https://jfrog.com/help/r/xray-rest-apis/build-summary) API:
-   - Gets detailed build information including impact paths
    - `GET /xray/api/v2/summary/build`
+   - Retrieves detailed build information, including impact paths for the identified Xray issue.ids.
+   - This step is essential to determine which artifacts are affected by the vulnerabilities.
+   
 
 3. [Build Artifacts Search](https://jfrog.com/help/r/jfrog-rest-apis/build-artifacts-search) API:
-   - Retrieves artifact repository locations
    - `POST /artifactory/api/search/buildArtifacts`
+   - Used to retrieve the repository locations of artifacts containing the vulnerabilities.
+   - This mapping ensures that the impacted paths are correctly associated with their respective repositories.
+
+This approach enables precise tracking of security vulnerabilities across different build versions, facilitating better risk assessment and mitigation.
 
 ## Debugging
 
