@@ -66,9 +66,13 @@ The script provides three sections of output:
    - Shows the actual repository locations of impacted artifacts
    - Indicates which build version contains each artifact
 
+
+Note: The "Imapcted Paths" format is
+``` 
+<xrayBInarymanagerName>/<build-repo>/<build-name>/<artifact>/<impacted_path_within_the_artifact>
+```
+
 Example output:
-Note: The "Imapcted Paths" format is 
-`<xrayBInarymanagerName>/<build-repo>/<build-name>/<artifact>/<impacted_path_within_the_artifact>`
 ```
 Old Build Impacted Paths:
 default/build-info/my-build/artifact1.jar/lib/vulnerable-lib.jar
