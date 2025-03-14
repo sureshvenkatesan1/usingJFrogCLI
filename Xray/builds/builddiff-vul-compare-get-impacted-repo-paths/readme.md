@@ -69,7 +69,7 @@ The script provides three sections of output:
 
 Note: The "Imapcted Paths" format is
 ``` 
-<xrayBInarymanagerName>/<build-repo>/<build-name>/<artifact>/<impacted_path_within_the_artifact>
+<xrayBinarymanagerName>/<build-repo>/<build-name>/<artifact>/<impacted_path_within_the_artifact>
 ```
 
 Example output:
