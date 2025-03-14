@@ -1,0 +1,3 @@
+*.json
+debug.*
+test.py
