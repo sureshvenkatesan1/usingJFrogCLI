@@ -102,6 +102,7 @@ The script interacts with the following JFrog Platform APIs:
    - `GET /xray/api/v2/summary/build`
    - Retrieves detailed build information, including impact paths for the identified Xray issue.ids.
    - This step is essential to determine which artifacts are affected by the vulnerabilities.
+
 Note:  The same vulnerability information can also be got from the [Get Build’s Scan Results](https://jfrog.com/help/r/xray-rest-apis/get-build-s-scan-results) API as well.
 
 3. [Build Artifacts Search](https://jfrog.com/help/r/jfrog-rest-apis/build-artifacts-search) API:
