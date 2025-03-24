@@ -102,7 +102,7 @@ The script interacts with the following JFrog Platform APIs:
    - `GET /xray/api/v2/summary/build`
    - Retrieves detailed build information, including impact paths for the identified Xray issue.ids.
    - This step is essential to determine which artifacts are affected by the vulnerabilities.
-   
+Note:  The same vulnerability information can also be got from the [Get Build’s Scan Results](https://jfrog.com/help/r/xray-rest-apis/get-build-s-scan-results) API as well.
 
 3. [Build Artifacts Search](https://jfrog.com/help/r/jfrog-rest-apis/build-artifacts-search) API:
    - `POST /artifactory/api/search/buildArtifacts`
@@ -149,7 +149,16 @@ curl -X POST -H "Content-Type: application/json" -H "X-Requested-With: XMLHttpRe
 curl -X GET -H "Authorization: Bearer $MYTOKEN" -H "Content-Type: application/json" \
 'https://your-artifactory-instance/xray/api/v2/summary/build?build_name=build-name&build_number=build-number&build_repo=build-repo'
 ```
+Note:  The same vulnerability information can also be got from the [Get Build’s Scan Results](https://jfrog.com/help/r/xray-rest-apis/get-build-s-scan-results) API as well ( which is shown below as an example).
 
+```
+jf xr curl -XGET "/api/v2/ci/build/YOUR-BUILD-NAME/YOUR-BUILD-VERSION?projectKey=YOUR-PROJECT-KEY&include_vulnerabilities=true" \
+--server-id=YOUR-JF_CLI_SERVER_ID | jq > get_builds_scan_results.json
+
+Example:
+jf xr curl -XGET "/api/v2/ci/build/cg-mvn-base-webgoat/2025-03-12_09-40-35?projectKey=cg-lab&include_vulnerabilities=true" \
+--server-id=psazuse | jq > get_builds_scan_results.json
+```
 3. Build Artifacts Search API:
 ```bash
 curl -X POST -H "Authorization: Bearer $MYTOKEN" -H "Content-Type: application/json" \
